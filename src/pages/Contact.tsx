@@ -137,14 +137,14 @@ const Contact = () => {
                   <Phone className="h-6 w-6 text-blue-600 mr-4" />
                   <div>
                     <p className="font-medium">Phone</p>
-                    <p className="text-gray-600">(555) 123-4567</p>
+                    <p className="text-gray-600">(732) 325-5895</p>
                   </div>
                 </div>
                 <div className="flex items-center">
                   <Mail className="h-6 w-6 text-blue-600 mr-4" />
                   <div>
                     <p className="font-medium">Email</p>
-                    <p className="text-gray-600">contact@qualityconstruction.com</p>
+                    <p className="text-gray-600">jarahermel0@gmail.com</p>
                   </div>
                 </div>
                 <div className="flex items-center">
@@ -159,9 +159,8 @@ const Contact = () => {
                   <Clock className="h-6 w-6 text-blue-600 mr-4" />
                   <div>
                     <p className="font-medium">Business Hours</p>
-                    <p className="text-gray-600">Monday - Friday: 7:00 AM - 6:00 PM</p>
-                    <p className="text-gray-600">Saturday: 8:00 AM - 2:00 PM</p>
-                    <p className="text-gray-600">Sunday: Closed</p>
+                    <p className="text-gray-600">Monday - Friday: 7:00 AM - 5:00 PM</p>
+                    <p className="text-gray-600">Saturday - Sunday: Closed</p>
                   </div>
                 </div>
               </div>
@@ -173,11 +172,12 @@ const Contact = () => {
                 We proudly serve the following areas and their surrounding communities:
               </p>
               <ul className="list-disc list-inside text-gray-600">
-                <li>Builder City</li>
-                <li>Construction Town</li>
-                <li>Renovation Valley</li>
-                <li>Remodel Heights</li>
-                <li>Project Springs</li>
+                <li>Middlesex County</li>
+                <li>Essex County</li>
+                <li>Monmouth County</li>
+                <li>Somerset County</li>
+                <li>Mercer County</li>
+                <li>Union County</li>
               </ul>
             </div>
           </div>

@@ -7,19 +7,19 @@ const About = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold mb-4">About Us</h1>
+          <h1 className="text-4xl font-bold mb-4">About HMD Pro</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             With over 25 years of experience in the construction industry, we've built our reputation on quality craftsmanship and exceptional customer service.
           </p>
         </div>
 
         {/* Story Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
-          <div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mb-16">
+          <div className="self-start">
             <img
               src="/images/owner.jpg"
               alt="Hermel Jara - Owner of HMD Pro LLC"
-              className="rounded-lg shadow-lg w-full h-[400px] object-cover"
+              className="rounded-lg shadow-lg w-full h-auto max-h-[750px] object-cover"
             />
           </div>
           <div>

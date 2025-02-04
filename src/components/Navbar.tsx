@@ -20,7 +20,7 @@ const Navbar = () => {
                 alt="HMD Pro LLC Logo" 
                 className="h-12 w-auto"
               />
-              <span className="ml-2 text-xl font-bold text-gray-800">HMD Pro LLC</span>
+              <span className="ml-2 text-xl font-bold text-gray-800">HMD Pro</span>
             </Link>
           </div>
           <div className="flex items-center space-x-8">

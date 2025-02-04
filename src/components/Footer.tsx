@@ -11,15 +11,15 @@ const Footer = () => {
             <div className="space-y-2">
               <div className="flex items-center">
                 <Phone className="h-5 w-5 mr-2" />
-                <span>(555) 123-4567</span>
+                <span>(732) 325-5895</span>
               </div>
               <div className="flex items-center">
                 <Mail className="h-5 w-5 mr-2" />
-                <span>contact@hmdprollc.com</span>
+                <span>hermeljara0@gmail.com</span>
               </div>
               <div className="flex items-center">
                 <MapPin className="h-5 w-5 mr-2" />
-                <span>123 Construction Ave, Builder City</span>
+                <span>6 Gaszi Avenue, South River, NJ </span>
               </div>
             </div>
           </div>
