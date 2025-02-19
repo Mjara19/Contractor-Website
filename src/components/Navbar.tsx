@@ -16,11 +16,11 @@ const Navbar = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
               <img 
-                src="/images/logo.png" 
+                src="/images/Company_Logo.jpg" 
                 alt="HMD Pro LLC Logo" 
-                className="h-12 w-auto"
-              />
-              <span className="ml-2 text-xl font-bold text-gray-800">HMD Pro</span>
+                className="h-[105px] w-[150px]"
+                />
+              {/*<span className="ml-2 text-xl font-bold text-gray-800">HMD Pro</span>*/}
             </Link>
           </div>
           <div className="flex items-center space-x-8">

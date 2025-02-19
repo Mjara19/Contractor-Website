@@ -17,7 +17,7 @@ const About = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mb-16">
           <div className="self-start">
             <img
-              src="/images/owner.jpg"
+              src="/images/IMG_5882.jpg"
               alt="Hermel Jara - Owner of HMD Pro LLC"
               className="rounded-lg shadow-lg w-full h-auto max-h-[750px] object-cover"
             />
