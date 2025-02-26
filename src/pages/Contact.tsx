@@ -10,10 +10,32 @@ const Contact = () => {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+  
+    try {
+      const response = await fetch("https://7sqnme6o32.execute-api.us-east-2.amazonaws.com/contactFormHandler", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+  
+      if (response.ok) {
+        alert("Message sent successfully!");
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          projectType: '',
+          message: '',
+        }); // Reset form after submission
+      } else {
+        alert("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("An error occurred. Please try again later.");
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
