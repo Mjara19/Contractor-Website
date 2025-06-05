@@ -19,7 +19,7 @@ const Reviews = () => {
               href="https://g.page/r/CXxxxxxxxx/review"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-8 py-3 border-2 border-gray-300 text-gray-700 rounded-lg hover:bg-gray-100 transition-colors"
+              className="inline-block px-8 py-3 bg-white border-2 border-[#8B0000] text-[#8B0000] rounded hover:bg-gray-50 transition-colors"
             >
               Google Review
             </a>
@@ -27,7 +27,7 @@ const Reviews = () => {
               href="https://www.facebook.com/YourPage/reviews"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-8 py-3 bg-[#8B0000] text-white rounded-lg hover:bg-red-900 transition-colors"
+              className="inline-block px-8 py-3 bg-[#8B0000] text-white rounded hover:bg-[#6B0000] transition-colors"
             >
               Facebook Review
             </a>
