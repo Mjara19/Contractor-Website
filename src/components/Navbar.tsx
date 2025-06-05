@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, User, Phone, Wrench, Pencil } from 'lucide-react';
+import { Home, User, Phone, Wrench, Pencil, Star } from 'lucide-react';
 
 const Navbar = () => {
   const location = useLocation();
@@ -38,6 +38,10 @@ const Navbar = () => {
             <Link to="/about" className={`flex items-center ${isActive('/about')}`}>
               <User className="h-5 w-5 mr-1" />
               <span>About</span>
+            </Link>
+            <Link to="/reviews" className={`flex items-center ${isActive('/reviews')}`}>
+              <Star className="h-5 w-5 mr-1" />
+              <span>Reviews</span>
             </Link>
             <Link to="/contact" className={`flex items-center ${isActive('/contact')}`}>
               <Phone className="h-5 w-5 mr-1" />
