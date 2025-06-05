@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, User, Phone } from 'lucide-react';
+import { Home, User, Phone, Wrench } from 'lucide-react';
 
 const Navbar = () => {
   const location = useLocation();
@@ -20,13 +20,16 @@ const Navbar = () => {
                 alt="HMD Pro LLC Logo" 
                 className="h-[105px] w-[150px]"
                 />
-              {/*<span className="ml-2 text-xl font-bold text-gray-800">HMD Pro</span>*/}
             </Link>
           </div>
           <div className="flex items-center space-x-8">
             <Link to="/" className={`flex items-center ${isActive('/')}`}>
               <Home className="h-5 w-5 mr-1" />
               <span>Home</span>
+            </Link>
+            <Link to="/services" className={`flex items-center ${isActive('/services')}`}>
+              <Wrench className="h-5 w-5 mr-1" />
+              <span>Services</span>
             </Link>
             <Link to="/projects" className={`flex items-center ${isActive('/projects')}`}>
               <span>Projects</span>
@@ -46,4 +49,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar
+export default Navbar;
