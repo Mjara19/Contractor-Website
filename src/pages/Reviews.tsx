@@ -27,7 +27,7 @@ const Reviews = () => {
               href="https://www.facebook.com/YourPage/reviews"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-8 py-3 bg-[#8B0000] text-white rounded hover:bg-[#6B0000] transition-colors"
+              className="inline-block px-8 py-3 bg-white border-2 border-[#8B0000] text-[#8B0000] rounded hover:bg-gray-50 transition-colors"
             >
               Facebook Review
             </a>
