@@ -7,7 +7,8 @@ const Contact = () => {
     email: '',
     phone: '',
     projectType: '',
-    message: ''
+    message: '',
+    recipientEmail: 'hermeljara0@gmail.com'
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -21,14 +22,15 @@ const Contact = () => {
       });
   
       if (response.ok) {
-        alert("Message sent successfully!");
+        alert("Message sent successfully! We'll get back to you soon.");
         setFormData({
           name: '',
           email: '',
           phone: '',
           projectType: '',
           message: '',
-        }); // Reset form after submission
+          recipientEmail: 'hermeljara0@gmail.com'
+        });
       } else {
         alert("Failed to send message. Please try again.");
       }
