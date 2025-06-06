@@ -11,16 +11,16 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white shadow-md relative z-50">
+    <nav className="bg-white shadow-md relative z-50 sticky top-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
               <img 
-                src="/images/Company_Logo.jpg" 
+                src="/images/Company_Logo.png" 
                 alt="HMD Pro LLC Logo" 
-                className="h-16 w-auto"
+                className="h-32 max-h-36 w-auto"
               />
             </Link>
           </div>

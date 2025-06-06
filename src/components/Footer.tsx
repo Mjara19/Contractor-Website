@@ -10,9 +10,9 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <img 
-              src="/images/Company_Logo.jpg" 
+              src="/images/Company_Logo(2).png" 
               alt="HMD Pro LLC Logo" 
-              className="h-16 w-auto mb-6"
+              className="h-54 max-h-56 w-auto mb-6"
             />
             <p className="text-gray-300 mb-6 leading-relaxed">
               With over 25 years of experience in the construction industry, HMD Pro LLC has built a reputation for excellence, quality craftsmanship, and exceptional customer service.

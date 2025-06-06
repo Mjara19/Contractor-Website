@@ -9,7 +9,7 @@ const Home = () => {
       <div 
         className="relative h-[70vh] bg-cover bg-center"
         style={{
-          backgroundImage: 'url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80")'
+          backgroundImage: 'url("https://images.pexels.com/photos/5505119/pexels-photo-5505119.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")'
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-60" />
