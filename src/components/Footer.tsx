@@ -71,9 +71,6 @@ const Footer = () => {
                 <li>• Mercer County</li>
                 <li>• Union County</li>
               </ul>
-              <p className="text-gray-400 text-sm mt-4">
-                And surrounding areas
-              </p>
             </div>
           </div>
 
