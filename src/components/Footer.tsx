@@ -5,9 +5,9 @@ const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
-          <div className="md:col-span-2">
+          <div>
             <img 
               src="/images/Company_Logo.jpg" 
               alt="HMD Pro LLC Logo" 
@@ -58,10 +58,29 @@ const Footer = () => {
             </div>
           </div>
 
+          {/* Service Areas */}
+          <div>
+            <h3 className="text-lg font-bold mb-6 text-white">SERVICE AREAS</h3>
+            <div className="space-y-2">
+              <p className="text-gray-300 font-semibold mb-3">New Jersey Counties:</p>
+              <ul className="space-y-1 text-gray-300">
+                <li>• Middlesex County</li>
+                <li>• Essex County</li>
+                <li>• Monmouth County</li>
+                <li>• Somerset County</li>
+                <li>• Mercer County</li>
+                <li>• Union County</li>
+              </ul>
+              <p className="text-gray-400 text-sm mt-4">
+                And surrounding areas
+              </p>
+            </div>
+          </div>
+
           {/* Business Hours */}
           <div>
             <h3 className="text-lg font-bold mb-6 text-white">BUSINESS HOURS</h3>
-            <div className="space-y-2">
+            <div className="space-y-4">
               <div className="flex items-center">
                 <Clock className="h-5 w-5 mr-3 text-red-600" />
                 <div>
