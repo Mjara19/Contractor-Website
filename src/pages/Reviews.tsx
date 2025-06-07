@@ -7,7 +7,7 @@ const Reviews = () => {
       {/* Hero Section */}
       <div className="bg-gray-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl font-bold text-red-600 mb-6">LEAVE A REVIEW</h1>
+          <h1 className="text-5xl font-bold mb-6">LEAVE A REVIEW</h1>
           <div className="w-24 h-1 bg-red-600 mx-auto mb-8"></div>
           <p className="text-xl text-gray-300 mb-6 max-w-3xl mx-auto leading-relaxed">
             We would love to hear your experience with HMD Pro LLC! It is thanks to you and all our valuable
