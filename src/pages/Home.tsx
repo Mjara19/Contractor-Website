@@ -125,8 +125,8 @@ const Home = () => {
             </div>
             <div>
               <img
-                src="/images/IMG_5882.jpg"
-                alt="Hermel Jara - Owner of HMD Pro LLC"
+                src="/images/Company_Logo.png"
+                alt="HMD Pro Construction LLC"
                 className="w-full h-auto rounded-lg shadow-lg"
               />
             </div>
