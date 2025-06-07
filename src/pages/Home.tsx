@@ -1,6 +1,7 @@
 import React from 'react';
-import { ArrowRight, Award, Clock, PenTool as Tool, Phone, Mail } from 'lucide-react';
+import { ArrowRight, Award, Clock, PenTool as Tool, Phone, Mail, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
+
 
 const Home = () => {
   return (
@@ -139,19 +140,23 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-5xl font-bold mb-2">25+</div>
+              <Award className="h-16 w-16 mx-auto mb-4" />
+              <div className="text-4xl font-bold mb-2">25+</div>
               <div className="text-xl font-light">Years Experience</div>
             </div>
             <div>
-              <div className="text-5xl font-bold mb-2">500+</div>
+              <Users className="h-16 w-16 mx-auto mb-4" />
+              <div className="text-4xl font-bold mb-2">500+</div>
               <div className="text-xl font-light">Happy Clients</div>
             </div>
             <div>
-              <div className="text-5xl font-bold mb-2">1000+</div>
+              <Clock className="h-16 w-16 mx-auto mb-4" />
+              <div className="text-4xl font-bold mb-2">1000+</div>
               <div className="text-xl font-light">Projects Completed</div>
             </div>
             <div>
-              <div className="text-5xl font-bold mb-2">15+</div>
+              <Tool className="h-16 w-16 mx-auto mb-4" />
+              <div className="text-4xl font-bold mb-2">15+</div>
               <div className="text-xl font-light">Expert Team Members</div>
             </div>
           </div>
