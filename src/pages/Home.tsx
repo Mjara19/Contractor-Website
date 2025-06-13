@@ -14,12 +14,12 @@ const Home = () => {
         backgroundImage="https://images.pexels.com/photos/5505119/pexels-photo-5505119.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
         className="h-[70vh]"
       >
-        <div className="max-w-7xl mx-auto px-4 h-full flex items-center">
+        <div className="max-w-7xl mx-auto px-4 h-full flex items-center justify-start">
           <motion.div 
             initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
-            className="text-white max-w-2xl"
+            className="text-white max-w-2xl mt-32 pl-8"
           >
             <motion.h1 
               initial={{ opacity: 0, y: 50 }}

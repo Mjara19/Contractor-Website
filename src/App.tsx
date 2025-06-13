@@ -53,7 +53,6 @@ function App() {
           </Routes>
         </main>
         <Footer />
-        <FloatingCTA />
       </div>
     </Router>
   );

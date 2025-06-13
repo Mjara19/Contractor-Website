@@ -36,16 +36,10 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
-              <motion.img 
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.2 }}
+              <img 
                 src="/images/Company_Logo.png" 
                 alt="HMD Pro LLC Logo" 
-                className={`transition-all duration-300 ${
-                  scrolled 
-                    ? 'h-16 max-h-16 w-auto md:h-20 md:max-h-24' 
-                    : 'h-24 max-h-24 w-auto md:h-32 md:max-h-36'
-                }`}
+                className="h-28 w-auto object-contain transition-all duration-300"
               />
             </Link>
           </div>
