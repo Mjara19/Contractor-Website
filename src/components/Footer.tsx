@@ -29,8 +29,8 @@ const Footer = () => {
               </a>
               {/* TikTok */}
               <a href="https://www.tiktok.com/@yourtiktok" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center bg-gray-800 rounded transition-colors h-12 w-12 text-gray-400 hover:text-white" aria-label="TikTok">
-                <svg className="h-6 w-6" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M20.948 2.667h-3.03v18.948c0 1.13-.917 2.047-2.047 2.047a2.05 2.05 0 0 1-2.047-2.047c0-1.13.917-2.047 2.047-2.047.226 0 .409-.183.409-.409v-3.03a.41.41 0 0 0-.409-.409c-3.012 0-5.486 2.474-5.486 5.486 0 3.012 2.474 5.486 5.486 5.486 3.012 0 5.486-2.474 5.486-5.486V12.6c1.13.726 2.462 1.153 3.89 1.153h.409a.41.41 0 0 0 .409-.409v-3.03a.41.41 0 0 0-.409-.409h-.409c-.726 0-1.409-.183-2.047-.522-.638-.339-1.183-.83-1.53-1.409-.348-.579-.53-1.262-.53-1.988v-.409a.41.41 0 0 0-.409-.409z" />
+                <svg className="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
                 </svg>
               </a>
             </div>
