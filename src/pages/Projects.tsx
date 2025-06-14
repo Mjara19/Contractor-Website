@@ -1,5 +1,6 @@
 import React from 'react';
 import { ReactCompareSlider, ReactCompareSliderImage } from 'react-compare-slider';
+import { motion } from 'framer-motion';
 
 const projects = [
   {
@@ -58,12 +59,27 @@ const Projects = () => {
       {/* Hero Section */}
       <div className="bg-gray-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl font-bold mb-6">OUR PROJECTS</h1>
-          <div className="w-24 h-1 bg-red-600 mx-auto mb-6"></div>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <motion.h1
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="text-5xl font-bold mb-6"
+          >OUR PROJECTS</motion.h1>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="w-24 h-1 bg-red-600 mx-auto mb-6"
+          />
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.4 }}
+            className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+          >
             Explore our portfolio of completed projects and see the quality craftsmanship that sets us apart.
             Use the slider to see the dramatic before and after transformations.
-          </p>
+          </motion.p>
         </div>
       </div>
 
@@ -71,8 +87,15 @@ const Projects = () => {
       <div className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project) => (
-              <div key={project.id} className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+            {projects.map((project, index) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+              >
                 <div className="h-64 relative">
                   <ReactCompareSlider
                     itemOne={<ReactCompareSliderImage src={project.beforeImage} alt="Before" />}
@@ -95,7 +118,7 @@ const Projects = () => {
                   <h3 className="text-xl font-bold mb-3 text-gray-900">{project.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{project.description}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -104,16 +127,35 @@ const Projects = () => {
       {/* CTA Section */}
       <div className="py-20 bg-red-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-6">READY TO START YOUR PROJECT?</h2>
-          <p className="text-xl mb-8 text-red-100">
-            Let us transform your space with the same quality and attention to detail.
-          </p>
-          <a
-            href="/contact"
-            className="inline-block bg-white text-red-600 px-8 py-4 text-lg font-bold hover:bg-gray-100 transition-colors"
+          <motion.h2
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-4xl font-bold mb-6"
+          >READY TO START YOUR PROJECT?</motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-xl mb-8 text-red-100"
           >
-            GET FREE ESTIMATE
-          </a>
+            Let us transform your space with the same quality and attention to detail.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <a
+              href="/contact"
+              className="inline-block bg-white text-red-600 px-8 py-4 text-lg font-bold hover:bg-gray-100 transition-colors"
+            >
+              GET FREE ESTIMATE
+            </a>
+          </motion.div>
         </div>
       </div>
     </div>

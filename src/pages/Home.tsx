@@ -14,18 +14,18 @@ const Home = () => {
         backgroundImage="https://images.pexels.com/photos/5505119/pexels-photo-5505119.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
         className="h-[70vh]"
       >
-        <div className="max-w-7xl mx-auto px-4 h-full flex items-center justify-start">
+        <div className="max-w-7xl mx-auto px-4 h-full flex items-center justify-start md:justify-start">
           <motion.div 
             initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
-            className="text-white max-w-2xl mt-32 pl-8"
+            className="text-white max-w-2xl mt-16 md:mt-32 px-2 md:pl-8 text-center md:text-left flex flex-col items-center md:items-start"
           >
             <motion.h1 
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="text-5xl md:text-6xl font-bold mb-6 leading-tight"
+              className="text-4xl md:text-6xl font-bold mb-6 leading-tight"
             >
               QUALITY CONSTRUCTION SERVICES
             </motion.h1>
@@ -33,7 +33,7 @@ const Home = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.4 }}
-              className="text-xl md:text-2xl mb-8 font-light"
+              className="text-lg md:text-2xl mb-8 font-light"
             >
               Building dreams into reality with craftsmanship and dedication
             </motion.p>
@@ -41,7 +41,7 @@ const Home = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4"
+              className="flex flex-col sm:flex-row gap-4 w-full items-center md:items-start justify-center md:justify-start"
             >
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Link

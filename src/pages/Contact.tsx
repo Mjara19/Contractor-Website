@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Clock, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -50,11 +51,26 @@ const Contact = () => {
       {/* Hero Section */}
       <div className="bg-gray-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl font-bold mb-6">CONTACT US</h1>
-          <div className="w-24 h-1 bg-red-600 mx-auto mb-6"></div>
-          <p className="text-xl text-gray-300">
+          <motion.h1
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="text-5xl font-bold mb-6"
+          >CONTACT US</motion.h1>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="w-24 h-1 bg-red-600 mx-auto mb-6"
+          />
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.4 }}
+            className="text-xl text-gray-300"
+          >
             Ready to start your project? Get in touch with us today for a free consultation.
-          </p>
+          </motion.p>
         </div>
       </div>
 
@@ -62,10 +78,15 @@ const Contact = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <div className="bg-white rounded-lg shadow-xl p-8">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-lg shadow-xl p-8"
+            >
               <h2 className="text-3xl font-bold text-gray-900 mb-6">GET FREE ESTIMATE</h2>
               <div className="w-24 h-1 bg-red-600 mb-8"></div>
-              
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-gray-700 font-semibold mb-2">
@@ -81,7 +102,6 @@ const Contact = () => {
                     required
                   />
                 </div>
-
                 <div>
                   <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">
                     Email Address *
@@ -96,7 +116,6 @@ const Contact = () => {
                     required
                   />
                 </div>
-
                 <div>
                   <label htmlFor="phone" className="block text-gray-700 font-semibold mb-2">
                     Phone Number *
@@ -111,7 +130,6 @@ const Contact = () => {
                     required
                   />
                 </div>
-
                 <div>
                   <label htmlFor="projectType" className="block text-gray-700 font-semibold mb-2">
                     Project Type *
@@ -133,7 +151,6 @@ const Contact = () => {
                     <option value="other">Other</option>
                   </select>
                 </div>
-
                 <div>
                   <label htmlFor="message" className="block text-gray-700 font-semibold mb-2">
                     Project Details *
@@ -149,7 +166,6 @@ const Contact = () => {
                     required
                   ></textarea>
                 </div>
-
                 <button
                   type="submit"
                   className="w-full bg-red-600 text-white py-4 px-6 rounded-lg hover:bg-red-700 transition-colors font-bold text-lg flex items-center justify-center"
@@ -158,15 +174,20 @@ const Contact = () => {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </button>
               </form>
-            </div>
+            </motion.div>
 
             {/* Contact Information */}
-            <div className="space-y-8">
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="space-y-8"
+            >
               {/* Contact Details */}
               <div className="bg-white rounded-lg shadow-xl p-8">
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">CONTACT INFORMATION</h2>
                 <div className="w-24 h-1 bg-red-600 mb-8"></div>
-                
                 <div className="space-y-6">
                   <div className="flex items-start">
                     <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
@@ -179,7 +200,6 @@ const Contact = () => {
                       </a>
                     </div>
                   </div>
-
                   <div className="flex items-start">
                     <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
                       <Mail className="h-6 w-6 text-red-600" />
@@ -191,7 +211,6 @@ const Contact = () => {
                       </a>
                     </div>
                   </div>
-
                   <div className="flex items-start">
                     <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
                       <MapPin className="h-6 w-6 text-red-600" />
@@ -204,7 +223,6 @@ const Contact = () => {
                       </p>
                     </div>
                   </div>
-
                   <div className="flex items-start">
                     <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
                       <Clock className="h-6 w-6 text-red-600" />
@@ -219,16 +237,13 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
-
               {/* Service Area */}
               <div className="bg-white rounded-lg shadow-xl p-8">
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">SERVICE AREA</h2>
                 <div className="w-24 h-1 bg-red-600 mb-8"></div>
-                
                 <p className="text-gray-600 mb-6 leading-relaxed">
                   We proudly serve the following areas and their surrounding communities:
                 </p>
-                
                 <div className="grid grid-cols-2 gap-4">
                   <ul className="space-y-2">
                     <li className="flex items-center text-gray-600">
@@ -260,7 +275,7 @@ const Contact = () => {
                   </ul>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
