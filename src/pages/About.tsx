@@ -40,7 +40,7 @@ const About = () => {
         {/* Story Section */}
         <div className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-center lg:text-left">
               <motion.div 
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -78,7 +78,7 @@ const About = () => {
         {/* Animated Stats Section */}
         <div className="py-20 bg-red-600 text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center items-center">
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -148,7 +148,7 @@ const About = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: i * 0.2 }}
                   viewport={{ once: true }}
-                  className="bg-white p-8 rounded-lg shadow-lg text-center"
+                  className="bg-white p-8 rounded-lg shadow-lg text-center mx-auto"
                 >
                   {/* The icon and content for each value card */}
                   {i === 0 && <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6"><CheckCircle className="h-8 w-8 text-red-600" /></div>}
@@ -190,7 +190,7 @@ const About = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: i * 0.2 }}
                   viewport={{ once: true }}
-                  className="space-y-6"
+                  className="space-y-6 text-center md:text-left"
                 >
                   {/* The content for each column */}
                   {i === 0 && (

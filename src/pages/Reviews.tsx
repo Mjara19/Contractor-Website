@@ -53,7 +53,7 @@ const Reviews = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto"
+              className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto items-center justify-center"
             >
               <a
                 href="https://g.page/r/CXxxxxxxxx/review"
@@ -88,7 +88,7 @@ const Reviews = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
-              className="mt-16 bg-white rounded-lg shadow-lg p-8 max-w-3xl mx-auto"
+              className="mt-16 bg-white rounded-lg shadow-lg p-8 max-w-3xl mx-auto items-center justify-center"
             >
               <h2 className="text-3xl font-bold text-gray-900 mb-6">WHY YOUR REVIEW MATTERS</h2>
               <div className="w-24 h-1 bg-red-600 mx-auto mb-8"></div>
