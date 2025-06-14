@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Home, Wrench, Hammer, Paintbrush, Ruler, Warehouse, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 
 const Services = () => {
   const services = [
@@ -50,156 +51,161 @@ const Services = () => {
   ];
 
   return (
-    <div>
-      {/* Hero Section */}
-      <div className="bg-gray-900 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="text-5xl font-bold mb-6"
-          >OUR SERVICES</motion.h1>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="w-24 h-1 bg-red-600 mx-auto mb-6"
-          />
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.4 }}
-            className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
-          >
-            We offer a comprehensive range of construction and remodeling services
-            to bring your vision to life with quality craftsmanship and attention to detail.
-          </motion.p>
-        </div>
-      </div>
-
-      {/* Services Grid */}
-      <div className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {services.map((service, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
-              >
-                <div className="md:flex">
-                  <div className="md:w-1/2">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="w-full h-64 md:h-full object-cover"
-                    />
-                  </div>
-                  <div className="md:w-1/2 p-8">
-                    <div className="flex items-center mb-4">
-                      {service.icon}
-                      <h3 className="text-xl font-bold text-gray-900 ml-3">{service.title}</h3>
-                    </div>
-                    <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
-                    <ul className="space-y-2">
-                      {service.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-center text-gray-600">
-                          <span className="h-2 w-2 bg-red-600 rounded-full mr-3"></span>
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Process Section */}
-      <div className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">OUR PROCESS</h2>
-            <div className="w-24 h-1 bg-red-600 mx-auto mb-6"></div>
-            <p className="text-xl text-gray-600">
-              From initial consultation to project completion
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {[0,1,2,3].map(i => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.2 }}
-                viewport={{ once: true }}
-                className="text-center"
-              >
-                <div className="w-16 h-16 bg-red-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
-                  {i+1}
-                </div>
-                <h3 className="text-xl font-bold mb-2 text-gray-900">{['CONSULTATION','DESIGN & PLANNING','CONSTRUCTION','COMPLETION'][i]}</h3>
-                <p className="text-gray-600">{[
-                  'We meet to discuss your vision, needs, and budget for the project.',
-                  'Our team creates detailed plans and provides a comprehensive estimate.',
-                  'We execute the project with precision, keeping you informed every step.',
-                  'Final walkthrough and handover of your beautifully completed project.'
-                ][i]}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* CTA Section */}
-      <div className="py-20 bg-red-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-4xl font-bold mb-6"
-          >READY TO START YOUR PROJECT?</motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="text-xl mb-8 text-red-100"
-          >
-            Contact us for a free consultation and detailed estimate.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            <Link
-              to="/contact"
-              className="inline-flex items-center bg-white text-red-600 px-8 py-4 text-lg font-bold hover:bg-gray-100 transition-colors"
+    <>
+      <Helmet>
+        <title>Services | HMD Pro Construction</title>
+      </Helmet>
+      <div>
+        {/* Hero Section */}
+        <div className="bg-gray-900 text-white py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <motion.h1
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="text-5xl font-bold mb-6"
+            >OUR SERVICES</motion.h1>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.2 }}
+              className="w-24 h-1 bg-red-600 mx-auto mb-6"
+            />
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.4 }}
+              className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
             >
-              GET FREE ESTIMATE
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-          </motion.div>
+              We offer a comprehensive range of construction and remodeling services
+              to bring your vision to life with quality craftsmanship and attention to detail.
+            </motion.p>
+          </div>
+        </div>
+
+        {/* Services Grid */}
+        <div className="py-20 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              {services.map((service, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  viewport={{ once: true }}
+                  className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+                >
+                  <div className="md:flex">
+                    <div className="md:w-1/2">
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="w-full h-64 md:h-full object-cover"
+                      />
+                    </div>
+                    <div className="md:w-1/2 p-8">
+                      <div className="flex items-center mb-4">
+                        {service.icon}
+                        <h3 className="text-xl font-bold text-gray-900 ml-3">{service.title}</h3>
+                      </div>
+                      <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
+                      <ul className="space-y-2">
+                        {service.features.map((feature, featureIndex) => (
+                          <li key={featureIndex} className="flex items-center text-gray-600">
+                            <span className="h-2 w-2 bg-red-600 rounded-full mr-3"></span>
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Process Section */}
+        <div className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">OUR PROCESS</h2>
+              <div className="w-24 h-1 bg-red-600 mx-auto mb-6"></div>
+              <p className="text-xl text-gray-600">
+                From initial consultation to project completion
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+              {[0,1,2,3].map(i => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: i * 0.2 }}
+                  viewport={{ once: true }}
+                  className="text-center"
+                >
+                  <div className="w-16 h-16 bg-red-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+                    {i+1}
+                  </div>
+                  <h3 className="text-xl font-bold mb-2 text-gray-900">{['CONSULTATION','DESIGN & PLANNING','CONSTRUCTION','COMPLETION'][i]}</h3>
+                  <p className="text-gray-600">{[
+                    'We meet to discuss your vision, needs, and budget for the project.',
+                    'Our team creates detailed plans and provides a comprehensive estimate.',
+                    'We execute the project with precision, keeping you informed every step.',
+                    'Final walkthrough and handover of your beautifully completed project.'
+                  ][i]}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="py-20 bg-red-600 text-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <motion.h2
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-4xl font-bold mb-6"
+            >READY TO START YOUR PROJECT?</motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="text-xl mb-8 text-red-100"
+            >
+              Contact us for a free consultation and detailed estimate.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <Link
+                to="/contact"
+                className="inline-flex items-center bg-white text-red-600 px-8 py-4 text-lg font-bold hover:bg-gray-100 transition-colors"
+              >
+                GET FREE ESTIMATE
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </motion.div>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
