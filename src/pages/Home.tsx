@@ -19,12 +19,12 @@ const Home = () => {
           backgroundImage="https://images.pexels.com/photos/5505119/pexels-photo-5505119.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
           className="h-[70vh]"
         >
-          <div className="max-w-7xl mx-auto px-4 h-full flex items-center justify-start md:justify-start">
+          <div className="max-w-7xl mx-auto px-4 h-full flex items-center justify-center md:justify-start">
             <motion.div 
               initial={{ opacity: 0, x: -100 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
-              className="text-white max-w-2xl mt-16 md:mt-32 px-2 md:pl-8 text-center md:text-left flex flex-col items-center md:items-start"
+              className="text-white max-w-2xl mt-16 md:mt-32 px-2 md:pl-8 text-center flex flex-col items-center md:items-start"
             >
               <motion.h1 
                 initial={{ opacity: 0, y: 50 }}
@@ -161,12 +161,13 @@ const Home = () => {
         {/* About Section */}
         <div className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-center lg:text-left">
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
+                className="text-center lg:text-left"
               >
                 <h2 className="text-4xl font-bold text-gray-900 mb-6">ABOUT HMD PRO LLC</h2>
                 <div className="w-24 h-1 bg-red-600 mb-6"></div>
@@ -191,11 +192,12 @@ const Home = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
+                className="flex justify-center lg:justify-end"
               >
                 <img
                   src="/images/Company_Logo.png"
                   alt="HMD Pro Construction LLC"
-                  className="w-full h-auto rounded-lg shadow-lg"
+                  className="w-full h-auto rounded-lg shadow-lg max-w-xs mx-auto lg:mx-0"
                 />
               </motion.div>
             </div>
@@ -267,7 +269,7 @@ const Home = () => {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
               <AnimatedCard delay={0} className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <motion.img
                   whileHover={{ scale: 1.1 }}
@@ -276,7 +278,7 @@ const Home = () => {
                   alt="Kitchen Remodel"
                   className="w-full h-64 object-cover"
                 />
-                <div className="p-6">
+                <div className="p-6 text-center">
                   <h3 className="text-xl font-bold mb-2 text-gray-900">MODERN KITCHEN REMODEL</h3>
                   <p className="text-gray-600">Complete kitchen renovation with custom cabinets and high-end finishes.</p>
                 </div>
@@ -290,7 +292,7 @@ const Home = () => {
                   alt="Bathroom Renovation"
                   className="w-full h-64 object-cover"
                 />
-                <div className="p-6">
+                <div className="p-6 text-center">
                   <h3 className="text-xl font-bold mb-2 text-gray-900">LUXURY BATHROOM</h3>
                   <p className="text-gray-600">Spa-like bathroom transformation with modern fixtures and tile work.</p>
                 </div>
@@ -304,7 +306,7 @@ const Home = () => {
                   alt="Home Addition"
                   className="w-full h-64 object-cover"
                 />
-                <div className="p-6">
+                <div className="p-6 text-center">
                   <h3 className="text-xl font-bold mb-2 text-gray-900">CUSTOM HOME ADDITION</h3>
                   <p className="text-gray-600">Two-story addition with seamless integration to existing structure.</p>
                 </div>
@@ -339,6 +341,7 @@ const Home = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
+              className="text-center"
             >
               <h2 className="text-4xl font-bold mb-6">READY TO START YOUR PROJECT?</h2>
               <p className="text-xl mb-8 text-gray-300">
