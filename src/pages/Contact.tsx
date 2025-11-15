@@ -148,12 +148,12 @@ const Contact = () => {
                       required
                     >
                       <option value="">Select a project type</option>
-                      <option value="kitchen">Kitchen Remodel</option>
-                      <option value="bathroom">Bathroom Remodel</option>
-                      <option value="addition">Home Addition</option>
-                      <option value="basement">Basement Finishing</option>
-                      <option value="outdoor">Outdoor Living Space</option>
-                      <option value="other">Other</option>
+                      <option value="Kitchen Remodel">Kitchen Remodel</option>
+                      <option value="Bathroom Remodel">Bathroom Remodel</option>
+                      <option value="Home Addition">Home Addition</option>
+                      <option value="Basement Finishing">Basement Finishing</option>
+                      <option value="Outdoor Living Space">Outdoor Living Space</option>
+                      <option value="Other">Other</option>
                     </select>
                   </div>
                   <div>
