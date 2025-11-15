@@ -12,6 +12,26 @@ const Contact = () => {
     message: ''
   });
 
+  // Format phone number as (XXX) XXX-XXXX
+  const formatPhoneNumber = (value: string): string => {
+    // Remove all non-digit characters
+    const phoneNumber = value.replace(/\D/g, '');
+    
+    // Limit to 10 digits
+    const phoneNumberDigits = phoneNumber.slice(0, 10);
+    
+    // Format based on length
+    if (phoneNumberDigits.length === 0) {
+      return '';
+    } else if (phoneNumberDigits.length <= 3) {
+      return `(${phoneNumberDigits}`;
+    } else if (phoneNumberDigits.length <= 6) {
+      return `(${phoneNumberDigits.slice(0, 3)}) ${phoneNumberDigits.slice(3)}`;
+    } else {
+      return `(${phoneNumberDigits.slice(0, 3)}) ${phoneNumberDigits.slice(3, 6)}-${phoneNumberDigits.slice(6)}`;
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
   
@@ -41,10 +61,20 @@ const Contact = () => {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    const { name, value } = e.target;
+    
+    // Apply phone formatting if it's the phone field
+    if (name === 'phone') {
+      setFormData({
+        ...formData,
+        [name]: formatPhoneNumber(value)
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value
+      });
+    }
   };
 
   return (
