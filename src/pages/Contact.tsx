@@ -1,8 +1,7 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Clock, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
-import ReCAPTCHA from 'react-google-recaptcha';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -12,11 +11,6 @@ const Contact = () => {
     projectType: '',
     message: ''
   });
-  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
-  const recaptchaRef = useRef<ReCAPTCHA>(null);
-  
-  // Get reCAPTCHA site key from environment variable
-  const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY || '';
 
   // Format phone number as (XXX) XXX-XXXX
   const formatPhoneNumber = (value: string): string => {
@@ -38,27 +32,14 @@ const Contact = () => {
     }
   };
 
-  const handleRecaptchaChange = (token: string | null) => {
-    setRecaptchaToken(token);
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-  
-    // Verify reCAPTCHA is completed
-    if (!recaptchaToken) {
-      alert("Please complete the reCAPTCHA verification.");
-      return;
-    }
   
     try {
       const response = await fetch("https://7sqnme6o32.execute-api.us-east-2.amazonaws.com/contactFormHandler", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...formData,
-          recaptchaToken: recaptchaToken
-        }),
+        body: JSON.stringify(formData),
       });
   
       if (response.ok) {
@@ -70,21 +51,12 @@ const Contact = () => {
           projectType: '',
           message: '',
         });
-        // Reset reCAPTCHA
-        setRecaptchaToken(null);
-        recaptchaRef.current?.reset();
       } else {
         alert("Failed to send message. Please try again.");
-        // Reset reCAPTCHA on failure
-        setRecaptchaToken(null);
-        recaptchaRef.current?.reset();
       }
     } catch (error) {
       console.error("Error submitting form:", error);
       alert("An error occurred. Please try again later.");
-      // Reset reCAPTCHA on error
-      setRecaptchaToken(null);
-      recaptchaRef.current?.reset();
     }
   };
 
@@ -229,20 +201,9 @@ const Contact = () => {
                       required
                     ></textarea>
                   </div>
-                  {RECAPTCHA_SITE_KEY && (
-                    <div className="flex justify-center">
-                      <ReCAPTCHA
-                        ref={recaptchaRef}
-                        sitekey={RECAPTCHA_SITE_KEY}
-                        onChange={handleRecaptchaChange}
-                        theme="light"
-                      />
-                    </div>
-                  )}
                   <button
                     type="submit"
-                    disabled={RECAPTCHA_SITE_KEY && !recaptchaToken}
-                    className="w-full bg-red-600 text-white py-4 px-6 rounded-lg hover:bg-red-700 transition-colors font-bold text-lg flex items-center justify-center disabled:bg-gray-400 disabled:cursor-not-allowed"
+                    className="w-full bg-red-600 text-white py-4 px-6 rounded-lg hover:bg-red-700 transition-colors font-bold text-lg flex items-center justify-center"
                   >
                     SEND MESSAGE
                     <ArrowRight className="ml-2 h-5 w-5" />
