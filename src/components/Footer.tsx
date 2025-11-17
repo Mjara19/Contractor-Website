@@ -15,7 +15,7 @@ const Footer = () => {
               className="h-54 max-h-56 w-auto mb-6"
             />
             <p className="text-gray-300 mb-6 leading-relaxed">
-              With over 25 years of experience in the construction industry, HMD Pro LLC has built a reputation for excellence, quality craftsmanship, and exceptional customer service.
+              With 25 years of experience in the construction industry, HMD Pro Construction LLC has built a reputation for excellence, quality craftsmanship, and exceptional customer service.
             </p>
             {/* Social Icons Grid */}
             <div className="grid grid-cols-3 gap-4 w-40">
@@ -54,15 +54,15 @@ const Footer = () => {
                 <div>
                   <p className="font-semibold">Email</p>
                   <a href="mailto:hermeljara0@gmail.com" className="text-gray-300 hover:text-white">
-                    hermeljara0@gmail.com
+                    info@hmdproconstruction.com
                   </a>
                 </div>
               </div>
               <div className="flex items-start">
                 <MapPin className="h-5 w-5 mr-3 mt-1 text-red-600" />
                 <div>
-                  <p className="font-semibold">Address</p>
-                  <p className="text-gray-300">6 Gaszi Avenue<br />South River, NJ</p>
+                  <p className="font-semibold">Location</p>
+                  <p className="text-gray-300">New Jersey, United States</p>
                 </div>
               </div>
             </div>
