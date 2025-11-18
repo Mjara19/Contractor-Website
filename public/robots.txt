@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hmdproconstruction.com/sitemap.xml
+
