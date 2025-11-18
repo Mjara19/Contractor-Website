@@ -193,7 +193,7 @@ const Home = () => {
                 viewport={{ once: true }}
               >
                 <img
-                  src="/images/Company_Logo.png"
+                  src="/images/HMD Pro Construction logo v1-01.png"
                   alt="HMD Pro Construction LLC"
                   className="w-full h-auto rounded-lg shadow-lg"
                 />

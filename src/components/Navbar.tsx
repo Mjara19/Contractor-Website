@@ -37,7 +37,7 @@ const Navbar = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
               <img 
-                src="/images/Company_Logo.png" 
+                src="/images/HMD Pro Construction logo v1-01.png" 
                 alt="HMD Pro LLC Logo" 
                 className="h-28 w-auto object-contain transition-all duration-300"
               />
