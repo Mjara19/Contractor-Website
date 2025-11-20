@@ -16,7 +16,7 @@ const Home = () => {
       <div>
         {/* Hero Section with Parallax */}
         <ParallaxSection
-          backgroundImage="https://images.pexels.com/photos/5505119/pexels-photo-5505119.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          backgroundImage="https://images.unsplash.com/photo-1655181750366-6fcacc9770f8?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           className="h-[70vh]"
         >
           <div className="max-w-7xl mx-auto px-4 h-full flex items-center justify-start md:justify-start">

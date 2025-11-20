@@ -39,14 +39,14 @@ const Services = () => {
       title: 'ROOFING, SIDING, AND GUTTERS',
       description: 'High-quality exterior services designed to protect your home, boost curb appeal, and ensure long-lasting durability.',
       features: ['Full roof replacements','Siding installation','Gutter installation'],
-      image: 'https://images.unsplash.com/photo-1654783864154-cd3ed0e141e7?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+      image: 'https://images.unsplash.com/photo-1678694180534-974017792a3e?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     },
     {
       icon: <Warehouse className="h-12 w-12 text-red-600" />,
       title: 'MASONRY SERVICES',
       description: 'Expert masonry craftsmanship for durable, beautiful structures that stand the test of time.',
       features: ['Brick & block installation', 'Stonework installation', 'Custom stonework'],
-      image: 'https://images.unsplash.com/photo-1589955170741-9cd0b8827250?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+      image: 'https://images.unsplash.com/photo-1761637823941-0ffae96ec487?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     },
     {
       icon: <Ruler className="h-12 w-12 text-red-600" />,

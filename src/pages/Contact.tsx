@@ -201,11 +201,14 @@ const Contact = () => {
                       required
                     >
                       <option value="">Select a project type</option>
-                      <option value="Kitchen Remodel">Kitchen Remodel</option>
-                      <option value="Bathroom Remodel">Bathroom Remodel</option>
-                      <option value="Home Addition">Home Addition</option>
-                      <option value="Basement Finishing">Basement Finishing</option>
-                      <option value="Outdoor Living Space">Outdoor Living Space</option>
+                      <option value="Home Renovation">Home Renovation</option>
+                      <option value="Kitchen Remodeling">Kitchen Remodeling</option>
+                      <option value="Bathroom Remodeling">Bathroom Remodeling</option>
+                      <option value="Interior Finishing">Interior Finishing</option>
+                      <option value="Roofing, Siding, and Gutters">Roofing, Siding, and Gutters</option>
+                      <option value="Masonry Services">Masonry Services</option>
+                      <option value="Concrete Services">Concrete Services</option>
+                      <option value="Hardscape, Walls & Pavers">Hardscape, Walls & Pavers</option>
                       <option value="Other">Other</option>
                     </select>
                   </div>
@@ -275,8 +278,8 @@ const Contact = () => {
                       </div>
                       <div>
                         <h3 className="font-bold text-gray-900 mb-1">EMAIL</h3>
-                        <a href="mailto:hermeljara0@gmail.com" className="text-lg text-gray-600 hover:text-red-600 transition-colors">
-                          hermeljara0@gmail.com
+                        <a href="mailto:info@hmdproconstruction.com" className="text-lg text-gray-600 hover:text-red-600 transition-colors">
+                          info@hmdproconstruction.com
                         </a>
                       </div>
                     </div>
@@ -285,10 +288,9 @@ const Contact = () => {
                         <MapPin className="h-6 w-6 text-red-600" />
                       </div>
                       <div>
-                        <h3 className="font-bold text-gray-900 mb-1">ADDRESS</h3>
+                        <h3 className="font-bold text-gray-900 mb-1">LOCATION</h3>
                         <p className="text-lg text-gray-600">
-                          6 Gaszi Avenue<br />
-                          South River, NJ
+                          New Jersey, United States
                         </p>
                       </div>
                     </div>

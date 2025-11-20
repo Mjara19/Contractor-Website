@@ -159,7 +159,7 @@ const About = () => {
                     {[
                       'We never compromise on quality. Every project is completed to the highest standards using premium materials and craftsmanship honed over decades.',
                       'Your satisfaction is our priority. We work closely with you throughout the project, providing reliable communication and professional service.',
-                      'We believe in honest communication, transparent pricing, and delivering on our promises. Trust built on 20+ years of proven results.'
+                      'We believe in honest communication, transparent pricing, and delivering on our promises.'
                     ][i]}
                   </p>
                 </motion.div>

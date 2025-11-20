@@ -31,7 +31,7 @@ const Reviews = () => {
               transition={{ duration: 1, delay: 0.4 }}
               className="text-xl text-gray-300 mb-6 max-w-3xl mx-auto leading-relaxed"
             >
-              We would love to hear your experience with HMD Pro LLC! It is thanks to you and all our valuable
+              We would love to hear your experience with HMD Pro Construction! It is thanks to you and all our valuable
               customers that we are able to continue to grow. We truly appreciate your business.
             </motion.p>
             <motion.p
@@ -53,7 +53,7 @@ const Reviews = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto items-center justify-center"
+              className="flex justify-center items-center max-w-2xl mx-auto"
             >
               <a
                 href="https://g.page/r/CXxxxxxxxx/review"
@@ -64,19 +64,6 @@ const Reviews = () => {
                 <div className="flex items-center">
                   <Star className="h-6 w-6 mr-3" />
                   <span className="text-lg font-bold">GOOGLE REVIEW</span>
-                  <ExternalLink className="h-5 w-5 ml-3 opacity-70" />
-                </div>
-              </a>
-              
-              <a
-                href="https://www.facebook.com/YourPage/reviews"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group bg-red-600 border-3 border-red-600 text-white py-6 px-8 rounded-lg hover:bg-white hover:text-red-600 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center"
-              >
-                <div className="flex items-center">
-                  <Star className="h-6 w-6 mr-3" />
-                  <span className="text-lg font-bold">FACEBOOK REVIEW</span>
                   <ExternalLink className="h-5 w-5 ml-3 opacity-70" />
                 </div>
               </a>
