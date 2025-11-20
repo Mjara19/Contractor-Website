@@ -10,43 +10,65 @@ const Services = () => {
       icon: <Home className="h-12 w-12 text-red-600" />,
       title: 'HOME RENOVATION',
       description: 'Complete home renovation services including structural changes, layout modifications, and aesthetic updates.',
-      features: ['Interior remodeling', 'Structural modifications', 'Floor plan optimization', 'Energy efficiency upgrades'],
-      image: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+      features: ['Interior remodeling', 'Structural modifications', 'Floor plan optimization'],
+      image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
     },
     {
       icon: <Wrench className="h-12 w-12 text-red-600" />,
       title: 'KITCHEN REMODELING',
       description: 'Transform your kitchen with our expert remodeling services, from simple updates to complete renovations.',
-      features: ['Custom cabinetry', 'Countertop installation', 'Appliance upgrades', 'Lighting design'],
-      image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+      features: ['Custom cabinetry', 'Countertop installation', 'Lighting design'],
+      image: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
     },
     {
       icon: <Hammer className="h-12 w-12 text-red-600" />,
       title: 'BATHROOM REMODELING',
       description: 'Create your dream bathroom with our comprehensive remodeling services.',
-      features: ['Tile installation', 'Fixture upgrades', 'Vanity installation', 'Lighting improvements'],
-      image: 'https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+      features: ['Tile installation', 'Fixture upgrades', 'Vanity installation'],
+      image: 'https://images.unsplash.com/photo-1631048499052-e6d9f305d2c0?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     },
     {
       icon: <Paintbrush className="h-12 w-12 text-red-600" />,
       title: 'INTERIOR FINISHING',
       description: 'Expert interior finishing services to perfect every detail of your space.',
-      features: ['Custom trim work', 'Wall texturing', 'Paint services', 'Door installation'],
-      image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+      features: ['Custom trim work', 'Paint services', 'Door installation'],
+      image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
     },
     {
       icon: <Ruler className="h-12 w-12 text-red-600" />,
-      title: 'CUSTOM PROJECTS',
-      description: 'Specialized construction services tailored to your unique needs and vision.',
-      features: ['Custom built-ins', 'Specialty rooms', 'Custom storage solutions', 'Architectural details'],
-      image: 'https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+      title: 'ROOFING, SIDING, AND GUTTERS',
+      description: 'High-quality exterior services designed to protect your home, boost curb appeal, and ensure long-lasting durability.',
+      features: ['Full roof replacements','Siding installation','Gutter installation'],
+      image: 'https://images.unsplash.com/photo-1654783864154-cd3ed0e141e7?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     },
     {
       icon: <Warehouse className="h-12 w-12 text-red-600" />,
-      title: 'ADDITIONS & EXTENSIONS',
-      description: 'Expand your living space with professionally designed and built home additions.',
-      features: ['Room additions', 'Second story additions', 'Garage conversions', 'Sunrooms'],
-      image: 'https://images.unsplash.com/photo-1449844908441-8829872d2607?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+      title: 'MASONRY SERVICES',
+      description: 'Expert masonry craftsmanship for durable, beautiful structures that stand the test of time.',
+      features: ['Brick & block installation', 'Stonework installation', 'Custom stonework'],
+      image: 'https://images.unsplash.com/photo-1589955170741-9cd0b8827250?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+    },
+    {
+      icon: <Ruler className="h-12 w-12 text-red-600" />,
+      title: 'CONCRETE SERVICES',
+      description: 'Reliable concrete installation and repair for long-lasting strength and durability.',
+      features: [
+        'Driveways & walkways',
+        'Concrete slabs & pads',
+        'Patios & steps'
+      ],
+      image: 'https://images.unsplash.com/photo-1623625434531-d130448273c1?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+    },
+    {
+      icon: <Ruler className="h-12 w-12 text-red-600" />,
+      title: 'HARDSCAPE, WALLS & PAVERS',
+      description: 'Expert hardscape services that enhance outdoor living spaces with durable materials, beautiful designs, and long-lasting craftsmanship.',
+      features: [
+        'Retaining wall installation',
+        'Paver patios & walkways',
+        'Stone & block landscaping'
+      ],
+      image: 'https://images.unsplash.com/photo-1761637822987-282e320d7ee9?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     }
   ];
 
