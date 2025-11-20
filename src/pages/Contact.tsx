@@ -127,7 +127,7 @@ const Contact = () => {
               transition={{ duration: 1, delay: 0.4 }}
               className="text-xl text-gray-300"
             >
-              Ready to start your project? Get in touch with us today for a free consultation.
+              Ready to start your project? Get professional results backed by 20+ years of construction experience. Contact us today for a free estimate.
             </motion.p>
           </div>
         </div>
@@ -311,7 +311,7 @@ const Contact = () => {
                   <h2 className="text-3xl font-bold text-gray-900 mb-6">SERVICE AREA</h2>
                   <div className="w-24 h-1 bg-red-600 mb-8"></div>
                   <p className="text-gray-600 mb-6 leading-relaxed">
-                    We proudly serve the following areas and their surrounding communities:
+                    We proudly serve the following areas throughout New Jersey with reliable, professional service:
                   </p>
                   <div className="grid grid-cols-2 gap-4">
                     <ul className="space-y-2">

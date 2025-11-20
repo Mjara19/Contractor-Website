@@ -7,7 +7,7 @@ const projects = [
   {
     id: 1,
     title: 'KITCHEN RENOVATION PROJECT',
-    description: 'Complete renovation of a family kitchen, including custom cabinetry and granite countertops.',
+    description: 'Complete kitchen renovation showcasing professional craftsmanship and attention to detail.',
     beforeImage: '/images/projects/kitchen-before.jpg',
     afterImage: '/images/projects/kitchen-after.jpg',
     category: 'Kitchen'
@@ -15,7 +15,7 @@ const projects = [
   {
     id: 2,
     title: 'MASTER BATHROOM RENOVATION',
-    description: 'Luxury bathroom remodel featuring a walk-in shower, freestanding tub, and custom vanity.',
+    description: 'Professional bathroom transformation built with quality materials and expert installation.',
     beforeImage: '/images/projects/bathroom-before.jpg',
     afterImage: '/images/projects/bathroom-after.jpg',
     category: 'Bathroom'
@@ -23,7 +23,7 @@ const projects = [
   {
     id: 3,
     title: 'HOME ADDITION',
-    description: 'Custom home addition including a family room and master suite.',
+    description: 'Expertly designed and built home addition with seamless integration to existing structure.',
     beforeImage: '/images/projects/addition-before.jpg',
     afterImage: '/images/projects/addition-after.jpg',
     category: 'Addition'
@@ -31,7 +31,7 @@ const projects = [
   {
     id: 4,
     title: 'BASEMENT FINISHING',
-    description: 'Complete basement transformation into a modern living space with entertainment area.',
+    description: 'Professional basement finishing transforming unused space into functional living area.',
     beforeImage: '/images/projects/basement-before.jpg',
     afterImage: '/images/projects/basement-after.jpg',
     category: 'Basement'
@@ -39,7 +39,7 @@ const projects = [
   {
     id: 5,
     title: 'OUTDOOR DECK CONSTRUCTION',
-    description: 'Custom deck construction with premium materials and modern design.',
+    description: 'Quality outdoor deck construction built to last, backed by decades of building experience.',
     beforeImage: '/images/projects/deck-before.jpg',
     afterImage: '/images/projects/deck-after.jpg',
     category: 'Outdoor'
@@ -47,7 +47,7 @@ const projects = [
   {
     id: 6,
     title: 'WHOLE HOUSE RENOVATION',
-    description: 'Complete home renovation including structural changes and modern updates.',
+    description: 'Comprehensive home renovation demonstrating skilled craftsmanship and reliable project management.',
     beforeImage: '/images/projects/house-before.jpg',
     afterImage: '/images/projects/house-after.jpg',
     category: 'Renovation'
@@ -82,8 +82,7 @@ const Projects = () => {
               transition={{ duration: 1, delay: 0.4 }}
               className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
             >
-              Explore our portfolio of completed projects and see the quality craftsmanship that sets us apart.
-              Use the slider to see the dramatic before and after transformations.
+              Experience the difference that 20+ years of proven craftsmanship makes. Use the slider to see the dramatic before and after transformations.
             </motion.p>
           </div>
         </div>
@@ -146,7 +145,7 @@ const Projects = () => {
               viewport={{ once: true }}
               className="text-xl mb-8 text-red-100"
             >
-              Let us transform your space with the same quality and attention to detail.
+              Let us transform your space with professional results backed by 20+ years of construction experience.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 30 }}

@@ -19,20 +19,20 @@ const About = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
               className="text-5xl font-bold mb-6"
-            >ABOUT HMD PRO LLC</motion.h1>
-            <motion.div 
+            >ABOUT HMD PRO CONSTRUCTION LLC</motion.h1>
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
               className="w-24 h-1 bg-red-600 mx-auto mb-6"
             />
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.4 }}
               className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
             >
-              With over 25 years of experience in the construction industry, we've built our reputation on quality craftsmanship and exceptional customer service.
+              Rooted in 20+ years of real construction experience. Modern quality with decades of proven craftsmanship.
             </motion.p>
           </div>
         </div>
@@ -62,13 +62,13 @@ const About = () => {
                 <h2 className="text-4xl font-bold mb-6 text-gray-900">MEET HERMEL JARA</h2>
                 <div className="w-24 h-1 bg-red-600 mb-6"></div>
                 <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                  As the founder and owner of HMD Pro LLC, Hermel Jara has established a reputation for excellence in the construction industry. His commitment to quality craftsmanship and customer satisfaction has been the cornerstone of our success.
+                  As the founder and owner of HMD Pro Construction LLC, Hermel Jara brings over 20 years of hands-on construction experience to every project. His commitment to quality workmanship and honest service has been the foundation of our success.
                 </p>
                 <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                  We believe in building not just structures, but relationships. Many of our clients have been with us for multiple projects over the years, trusting us with their homes and recommending us to their friends and family.
+                  While HMD Pro Construction LLC is a modern company, the expertise behind it spans decades. We believe in building not just structures, but lasting relationships based on trust, reliability, and professional results.
                 </p>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  Our team of skilled craftsmen brings decades of combined experience to every project, ensuring that each detail is executed with precision and care.
+                  Every project benefits from years of refined skills and proven methods. We take pride in doing the job right, delivering quality that stands the test of time.
                 </p>
               </motion.div>
             </div>
@@ -86,7 +86,7 @@ const About = () => {
                 viewport={{ once: true }}
               >
                 <Award className="h-16 w-16 mx-auto mb-4" />
-                <AnimatedCounter end={25} suffix="+" />
+                <AnimatedCounter end={20} suffix="+" />
                 <div className="text-xl font-light">Years Experience</div>
               </motion.div>
               <motion.div
@@ -157,9 +157,9 @@ const About = () => {
                   <h3 className="text-2xl font-bold mb-4 text-gray-900">{['QUALITY FIRST','CUSTOMER FOCUS','INTEGRITY'][i]}</h3>
                   <p className="text-gray-600 leading-relaxed">
                     {[
-                      'We never compromise on quality. Every project is completed to the highest standards using premium materials and expert craftsmanship.',
-                      'Your satisfaction is our priority. We work closely with you throughout the project to ensure your vision becomes reality.',
-                      'We believe in honest communication, transparent pricing, and delivering on our promises every time.'
+                      'We never compromise on quality. Every project is completed to the highest standards using premium materials and craftsmanship honed over decades.',
+                      'Your satisfaction is our priority. We work closely with you throughout the project, providing reliable communication and professional service.',
+                      'We believe in honest communication, transparent pricing, and delivering on our promises. Trust built on 20+ years of proven results.'
                     ][i]}
                   </p>
                 </motion.div>
@@ -178,7 +178,7 @@ const About = () => {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">WHY CHOOSE HMD PRO LLC?</h2>
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">WHY CHOOSE HMD PRO CONSTRUCTION LLC?</h2>
               <div className="w-24 h-1 bg-red-600 mx-auto mb-6"></div>
             </motion.div>
 
@@ -213,7 +213,7 @@ const About = () => {
                         <CheckCircle className="h-6 w-6 text-red-600 mr-4 mt-1 flex-shrink-0" />
                         <div>
                           <h4 className="text-lg font-semibold text-gray-900 mb-2">Quality Materials</h4>
-                          <p className="text-gray-600">We use only the finest materials and work with trusted suppliers.</p>
+                          <p className="text-gray-600">We use only quality materials and work with trusted suppliers, backed by decades of industry relationships.</p>
                         </div>
                       </div>
                     </>
@@ -223,8 +223,8 @@ const About = () => {
                       <div className="flex items-start">
                         <CheckCircle className="h-6 w-6 text-red-600 mr-4 mt-1 flex-shrink-0" />
                         <div>
-                          <h4 className="text-lg font-semibold text-gray-900 mb-2">On-Time Completion</h4>
-                          <p className="text-gray-600">We respect your time and complete projects on schedule.</p>
+                          <h4 className="text-lg font-semibold text-gray-900 mb-2">Reliable Service</h4>
+                          <p className="text-gray-600">We respect your time and complete projects professionally, drawing on 20+ years of field experience.</p>
                         </div>
                       </div>
                       <div className="flex items-start">

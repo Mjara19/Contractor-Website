@@ -15,7 +15,7 @@ const Footer = () => {
               className="h-54 max-h-56 w-auto mb-6"
             />
             <p className="text-gray-300 mb-6 leading-relaxed">
-              With 25 years of experience in the construction industry, HMD Pro Construction LLC has built a reputation for excellence, quality craftsmanship, and exceptional customer service.
+              Built on 20+ years of construction experience. HMD Pro Construction LLC delivers modern quality with decades of proven craftsmanship and reliable service.
             </p>
             {/* Social Icons Grid */}
             <div className="grid grid-cols-3 gap-4 w-40">

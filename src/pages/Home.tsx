@@ -32,15 +32,15 @@ const Home = () => {
                 transition={{ duration: 1, delay: 0.2 }}
                 className="text-4xl md:text-6xl font-bold mb-6 leading-tight"
               >
-                QUALITY CONSTRUCTION SERVICES
+                BUILT ON 20+ YEARS OF CRAFTSMANSHIP
               </motion.h1>
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.4 }}
                 className="text-lg md:text-2xl mb-8 font-light"
               >
-                Building dreams into reality with craftsmanship and dedication
+                Modern quality with decades of proven construction experience. Professional results you can trust.
               </motion.p>
               <motion.div 
                 initial={{ opacity: 0, y: 30 }}
@@ -84,7 +84,7 @@ const Home = () => {
               <h2 className="text-4xl font-bold text-gray-900 mb-4" data-aos="fade-up">OUR SERVICES</h2>
               <div className="w-24 h-1 bg-red-600 mx-auto mb-6" data-aos="fade-up" data-aos-delay="100"></div>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
-                We offer comprehensive construction and remodeling services with over 25 years of experience
+                Comprehensive construction and remodeling services backed by 20+ years of hands-on experience
               </p>
             </motion.div>
 
@@ -100,7 +100,7 @@ const Home = () => {
                   </motion.div>
                   <h3 className="text-xl font-bold mb-4 text-gray-900">KITCHEN REMODELING</h3>
                   <p className="text-gray-600 leading-relaxed">
-                    Transform your kitchen with our expert remodeling services, from simple updates to complete renovations.
+                    Transform your kitchen with expert craftsmanship honed over two decades of professional remodeling experience.
                   </p>
                 </div>
               </AnimatedCard>
@@ -116,7 +116,7 @@ const Home = () => {
                   </motion.div>
                   <h3 className="text-xl font-bold mb-4 text-gray-900">BATHROOM REMODELING</h3>
                   <p className="text-gray-600 leading-relaxed">
-                    Create your dream bathroom with our comprehensive remodeling services and quality craftsmanship.
+                    Create your dream bathroom with quality craftsmanship and reliable service you can count on.
                   </p>
                 </div>
               </AnimatedCard>
@@ -132,7 +132,7 @@ const Home = () => {
                   </motion.div>
                   <h3 className="text-xl font-bold mb-4 text-gray-900">HOME ADDITIONS</h3>
                   <p className="text-gray-600 leading-relaxed">
-                    Expand your living space with professionally designed and built home additions and extensions.
+                    Expand your living space with professionally designed additions built on decades of construction expertise.
                   </p>
                 </div>
               </AnimatedCard>
@@ -168,13 +168,13 @@ const Home = () => {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-4xl font-bold text-gray-900 mb-6">ABOUT HMD PRO LLC</h2>
+                <h2 className="text-4xl font-bold text-gray-900 mb-6">ABOUT HMD PRO CONSTRUCTION LLC</h2>
                 <div className="w-24 h-1 bg-red-600 mb-6"></div>
                 <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                  With over 25 years of experience in the construction industry, HMD Pro LLC has built a reputation for excellence, quality craftsmanship, and exceptional customer service.
+                  HMD Pro Construction LLC brings you over 20 years of real-world construction experience. While our company is modern, our craftsmanship is rooted in decades of hands-on expertise passed down through dedication and skill.
                 </p>
                 <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                  Founded by Hermel Jara, our company believes in building not just structures, but lasting relationships with our clients. We take pride in delivering projects that exceed expectations.
+                  Founded by Hermel Jara, we believe in honest work, transparent communication, and building lasting relationships with every client. Experience you can trust. Quality you can rely on.
                 </p>
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                   <Link
@@ -213,7 +213,7 @@ const Home = () => {
                 viewport={{ once: true }}
               >
                 <Award className="h-16 w-16 mx-auto mb-4" />
-                <AnimatedCounter end={25} suffix="+" />
+                <AnimatedCounter end={20} suffix="+" />
                 <div className="text-xl font-light">Years Experience</div>
               </motion.div>
               <motion.div
@@ -342,7 +342,7 @@ const Home = () => {
             >
               <h2 className="text-4xl font-bold mb-6">READY TO START YOUR PROJECT?</h2>
               <p className="text-xl mb-8 text-gray-300">
-                Contact us today for a free consultation and estimate
+                Get professional results backed by 20+ years of construction experience. Contact us for a free estimate.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
