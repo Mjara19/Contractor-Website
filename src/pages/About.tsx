@@ -19,7 +19,7 @@ const About = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
               className="text-5xl font-bold mb-6"
-            >ABOUT HMD PRO CONSTRUCTION LLC</motion.h1>
+            >ABOUT HMD PRO CONSTRUCTION </motion.h1>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -62,10 +62,10 @@ const About = () => {
                 <h2 className="text-4xl font-bold mb-6 text-gray-900">MEET HERMEL JARA</h2>
                 <div className="w-24 h-1 bg-red-600 mb-6"></div>
                 <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                  As the founder and owner of HMD Pro Construction LLC, Hermel Jara brings over 20 years of hands-on construction experience to every project. His commitment to quality workmanship and honest service has been the foundation of our success.
+                  As the founder and owner of HMD Pro Construction, Hermel Jara brings over 20 years of hands-on construction experience to every project. His commitment to quality workmanship and honest service has been the foundation of our success.
                 </p>
                 <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                  While HMD Pro Construction LLC is a modern company, the expertise behind it spans decades. We believe in building not just structures, but lasting relationships based on trust, reliability, and professional results.
+                  While HMD Pro Construction is a modern company, the expertise behind it spans decades. We believe in building not just structures, but lasting relationships based on trust, reliability, and professional results.
                 </p>
                 <p className="text-lg text-gray-600 leading-relaxed">
                   Every project benefits from years of refined skills and proven methods. We take pride in doing the job right, delivering quality that stands the test of time.
@@ -96,7 +96,7 @@ const About = () => {
                 viewport={{ once: true }}
               >
                 <Users className="h-16 w-16 mx-auto mb-4" />
-                <AnimatedCounter end={500} suffix="+" />
+                <AnimatedCounter end={50} suffix="+" />
                 <div className="text-xl font-light">Happy Clients</div>
               </motion.div>
               <motion.div
@@ -106,7 +106,7 @@ const About = () => {
                 viewport={{ once: true }}
               >
                 <Clock className="h-16 w-16 mx-auto mb-4" />
-                <AnimatedCounter end={1000} suffix="+" />
+                <AnimatedCounter end={100} suffix="+" />
                 <div className="text-xl font-light">Projects Completed</div>
               </motion.div>
               <motion.div
@@ -116,7 +116,7 @@ const About = () => {
                 viewport={{ once: true }}
               >
                 <Tool className="h-16 w-16 mx-auto mb-4" />
-                <AnimatedCounter end={15} suffix="+" />
+                <AnimatedCounter end={5} suffix="+" />
                 <div className="text-xl font-light">Expert Team Members</div>
               </motion.div>
             </div>

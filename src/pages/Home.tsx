@@ -168,10 +168,10 @@ const Home = () => {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-4xl font-bold text-gray-900 mb-6">ABOUT HMD PRO CONSTRUCTION LLC</h2>
+                <h2 className="text-4xl font-bold text-gray-900 mb-6">ABOUT HMD PRO CONSTRUCTION </h2>
                 <div className="w-24 h-1 bg-red-600 mb-6"></div>
                 <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                  HMD Pro Construction LLC brings you over 20 years of real-world construction experience. While our company is modern, our craftsmanship is rooted in decades of hands-on expertise passed down through dedication and skill.
+                  HMD Pro Construction brings you over 20 years of real-world construction experience. While our company is modern, our craftsmanship is rooted in decades of hands-on expertise passed down through dedication and skill.
                 </p>
                 <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                   Founded by Hermel Jara, we believe in honest work, transparent communication, and building lasting relationships with every client. Experience you can trust. Quality you can rely on.
@@ -223,7 +223,7 @@ const Home = () => {
                 viewport={{ once: true }}
               >
                 <Users className="h-16 w-16 mx-auto mb-4" />
-                <AnimatedCounter end={500} suffix="+" />
+                <AnimatedCounter end={50} suffix="+" />
                 <div className="text-xl font-light">Happy Clients</div>
               </motion.div>
               <motion.div
@@ -233,7 +233,7 @@ const Home = () => {
                 viewport={{ once: true }}
               >
                 <Clock className="h-16 w-16 mx-auto mb-4" />
-                <AnimatedCounter end={1000} suffix="+" />
+                <AnimatedCounter end={100} suffix="+" />
                 <div className="text-xl font-light">Projects Completed</div>
               </motion.div>
               <motion.div
@@ -243,7 +243,7 @@ const Home = () => {
                 viewport={{ once: true }}
               >
                 <Tool className="h-16 w-16 mx-auto mb-4" />
-                <AnimatedCounter end={15} suffix="+" />
+                <AnimatedCounter end={5} suffix="+" />
                 <div className="text-xl font-light">Expert Team Members</div>
               </motion.div>
             </div>
