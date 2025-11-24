@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Home, Wrench, Hammer, Paintbrush, Ruler, Warehouse, ArrowRight } from 'lucide-react';
+import { Home, Wrench, Hammer, Paintbrush, Ruler, Warehouse, ArrowRight, BrickWall, Braces, Building, LampCeiling, LampDesk } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 
@@ -21,7 +21,7 @@ const Services = () => {
       image: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
     },
     {
-      icon: <Hammer className="h-12 w-12 text-red-600" />,
+      icon: <LampCeiling className="h-12 w-12 text-red-600" />,
       title: 'BATHROOM REMODELING',
       description: 'Create your dream bathroom with our comprehensive remodeling services.',
       features: ['Tile installation', 'Fixture upgrades', 'Vanity installation'],
@@ -35,7 +35,7 @@ const Services = () => {
       image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
     },
     {
-      icon: <Ruler className="h-12 w-12 text-red-600" />,
+      icon: <Hammer className="h-12 w-12 text-red-600" />,
       title: 'ROOFING, SIDING, AND GUTTERS',
       description: 'High-quality exterior services designed to protect your home, boost curb appeal, and ensure long-lasting durability.',
       features: ['Full roof replacements','Siding installation','Gutter installation'],
@@ -49,7 +49,7 @@ const Services = () => {
       image: 'https://images.unsplash.com/photo-1761637823941-0ffae96ec487?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     },
     {
-      icon: <Ruler className="h-12 w-12 text-red-600" />,
+      icon: <Building className="h-12 w-12 text-red-600" />,
       title: 'CONCRETE SERVICES',
       description: 'Reliable concrete installation and repair for long-lasting strength and durability.',
       features: [
@@ -60,7 +60,7 @@ const Services = () => {
       image: 'https://images.unsplash.com/photo-1623625434531-d130448273c1?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     },
     {
-      icon: <Ruler className="h-12 w-12 text-red-600" />,
+      icon: <BrickWall className="h-12 w-12 text-red-600" />,
       title: 'HARDSCAPE, WALLS & PAVERS',
       description: 'Expert hardscape services that enhance outdoor living spaces with durable materials, beautiful designs, and long-lasting craftsmanship.',
       features: [

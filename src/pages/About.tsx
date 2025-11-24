@@ -49,7 +49,7 @@ const About = () => {
               >
                 <img
                   src="/images/IMG_5882.jpg"
-                  alt="Hermel Jara - Owner of HMD Pro LLC"
+                  alt="Hermel Jara - Owner of HMD Pro Construction"
                   className="rounded-lg shadow-xl w-full h-auto"
                 />
               </motion.div>

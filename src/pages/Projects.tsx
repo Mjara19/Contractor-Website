@@ -1,38 +1,33 @@
 import React from 'react';
-import { ReactCompareSlider, ReactCompareSliderImage } from 'react-compare-slider';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 
 const projects = [
   {
     id: 1,
-    title: 'KITCHEN RENOVATION PROJECT',
-    description: 'Complete kitchen renovation showcasing professional craftsmanship and attention to detail.',
-    beforeImage: '/images/projects/kitchen-before.jpg',
-    afterImage: '/images/projects/kitchen-after.jpg',
-    category: 'Kitchen'
+    title: 'PAVER WALKWAY',
+    description: 'A custom paver walkway installed at the front entrance to enhance curb appeal and provide a durable, low-maintenance entry path.',
+    afterImage: '/images/Project 1.jpg',
+    category: 'HARDSCAPE, WALLS & PAVERS'
   },
   {
     id: 2,
-    title: 'MASTER BATHROOM RENOVATION',
+    title: 'KITCHEN PORCELAIN TILE FLOOR INSTALLATION',
     description: 'Professional bathroom transformation built with quality materials and expert installation.',
-    beforeImage: '/images/projects/bathroom-before.jpg',
-    afterImage: '/images/projects/bathroom-after.jpg',
-    category: 'Bathroom'
+    afterImage: '/images/Project 7.jpg',
+    category: 'Kitchen Remodoling'
   },
   {
     id: 3,
-    title: 'HOME ADDITION',
-    description: 'Expertly designed and built home addition with seamless integration to existing structure.',
-    beforeImage: '/images/projects/addition-before.jpg',
-    afterImage: '/images/projects/addition-after.jpg',
-    category: 'Addition'
+    title: 'BACKYARD PAVER WALKWAY INSTALLATION',
+    description: 'A custom-designed paver walkway installed along the side of the home.',
+    afterImage: '/images/Project 2.jpg',
+    category: 'HARDSCAPE, WALLS & PAVERS'
   },
   {
     id: 4,
     title: 'BASEMENT FINISHING',
     description: 'Professional basement finishing transforming unused space into functional living area.',
-    beforeImage: '/images/projects/basement-before.jpg',
     afterImage: '/images/projects/basement-after.jpg',
     category: 'Basement'
   },
@@ -40,7 +35,6 @@ const projects = [
     id: 5,
     title: 'OUTDOOR DECK CONSTRUCTION',
     description: 'Quality outdoor deck construction built to last, backed by decades of building experience.',
-    beforeImage: '/images/projects/deck-before.jpg',
     afterImage: '/images/projects/deck-after.jpg',
     category: 'Outdoor'
   },
@@ -48,7 +42,6 @@ const projects = [
     id: 6,
     title: 'WHOLE HOUSE RENOVATION',
     description: 'Comprehensive home renovation demonstrating skilled craftsmanship and reliable project management.',
-    beforeImage: '/images/projects/house-before.jpg',
     afterImage: '/images/projects/house-after.jpg',
     category: 'Renovation'
   }
@@ -62,7 +55,7 @@ const Projects = () => {
       </Helmet>
       <div>
         {/* Hero Section */}
-        <div className="bg-gray-900 text-white py-20">
+        <div className="bg-gr ay-900 text-white py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.h1
               initial={{ opacity: 0, y: 50 }}
@@ -100,20 +93,12 @@ const Projects = () => {
                   viewport={{ once: true }}
                   className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
                 >
-                  <div className="h-64 relative">
-                    <ReactCompareSlider
-                      itemOne={<ReactCompareSliderImage src={project.beforeImage} alt="Before" />}
-                      itemTwo={<ReactCompareSliderImage src={project.afterImage} alt="After" />}
-                      className="h-full"
-                      style={{ height: '100%' }}
+                  <div className="h-64 w-full overflow-hidden">
+                    <img
+                      src={project.afterImage}
+                      alt={project.title}
+                      className="w-full h-64 object-cover"
                     />
-                    {/* Before/After Labels */}
-                    <div className="absolute top-4 left-4 bg-black bg-opacity-70 text-white px-3 py-1 rounded text-sm font-semibold">
-                      BEFORE
-                    </div>
-                    <div className="absolute top-4 right-4 bg-black bg-opacity-70 text-white px-3 py-1 rounded text-sm font-semibold">
-                      AFTER
-                    </div>
                   </div>
                   <div className="p-6">
                     <span className="inline-block bg-red-100 text-red-600 px-3 py-1 rounded-full text-sm font-bold mb-3">

@@ -92,7 +92,7 @@ const Footer = () => {
                 <Clock className="h-5 w-5 mr-3 text-red-600" />
                 <div>
                   <p className="text-gray-300">Monday - Friday</p>
-                  <p className="font-semibold">7:00 AM - 5:00 PM</p>
+                  <p className="font-semibold">8:00 AM - 5:00 PM</p>
                 </div>
               </div>
               <div className="ml-8">
