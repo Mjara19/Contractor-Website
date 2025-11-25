@@ -167,6 +167,7 @@ const Home = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
+                className="text-center lg:text-left"
               >
                 <h2 className="text-4xl font-bold text-gray-900 mb-6">ABOUT HMD PRO CONSTRUCTION </h2>
                 <div className="w-24 h-1 bg-red-600 mb-6"></div>
