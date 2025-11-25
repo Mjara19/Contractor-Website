@@ -12,6 +12,7 @@ const Home = () => {
     <>
       <Helmet>
         <title>Home | HMD Pro Construction</title>
+        <meta name="description" content="Professional construction and remodeling services in New Jersey with 20+ years of experience. Kitchen, bathroom, and home renovations." />
       </Helmet>
       <div>
         {/* Hero Section with Parallax */}
