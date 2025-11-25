@@ -56,7 +56,7 @@ const Reviews = () => {
               className="flex justify-center items-center max-w-2xl mx-auto"
             >
               <a
-                href="https://g.page/r/CXxxxxxxxx/review"
+                href="https://www.google.com/search?q=hmd+pro+construction&sca_esv=a52577f178443ecc&sxsrf=AE3TifPFBxGEsnJfPT-TFWoDT5cOSFHWug%3A1764098013444&source=hp&ei=3f8laZ_DGJKA0PEPntyZ6Ak&iflsig=AOw8s4IAAAAAaSYN7UiTZy1pnMzz5CnOZfRmIaPnLX-l&oq=hmd&gs_lp=Egdnd3Mtd2l6IgNobWQqAggAMgQQIxgnMgoQIxiABBgnGIoFMgQQIxgnMhMQLhiABBixAxjRAxhDGMcBGIoFMgoQABiABBhDGIoFMhAQABiABBixAxhDGIMBGIoFMg0QLhiABBhDGOUEGIoFMgoQABiABBhDGIoFMg0QLhiABBhDGOUEGIoFMg0QABiABBixAxhDGIoFSKsVULwGWLsIcAF4AJABAJgBrwGgAYEDqgEDMS4yuAEByAEA-AEBmAIEoAKOA6gCCsICBxAjGCcY6gLCAg0QIxjwBRgnGOoCGJ4GwgILEAAYgAQYkQIYigXCAhEQLhiABBixAxjRAxiDARjHAcICCxAuGIAEGNEDGMcBwgILEAAYgAQYsQMYgwHCAhYQLhiABBixAxjRAxhDGIMBGMcBGIoFwgIOEC4YgAQYxwEYjgUYrwGYAwXxBTPltAZimMRjkgcDMi4yoAfvLrIHAzEuMrgHiAPCBwUwLjMuMcgHCQ&sclient=gws-wiz"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group bg-white border-3 border-red-600 text-red-600 py-6 px-8 rounded-lg hover:bg-red-600 hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center"
