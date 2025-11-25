@@ -7,49 +7,49 @@ import { Helmet } from 'react-helmet-async';
 const Services = () => {
   const services = [
     {
-      icon: <Home className="h-12 w-12 text-red-600" />,
+      icon: <Home className="text-red-600"/>,
       title: 'HOME RENOVATION',
       description: 'Complete home renovation services including structural changes, layout modifications, and aesthetic updates.',
       features: ['Interior remodeling', 'Structural modifications', 'Floor plan optimization'],
       image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
     },
     {
-      icon: <Wrench className="h-12 w-12 text-red-600" />,
+      icon: <Wrench className="text-red-600" />,
       title: 'KITCHEN REMODELING',
       description: 'Transform your kitchen with our expert remodeling services, from simple updates to complete renovations.',
       features: ['Custom cabinetry', 'Countertop installation', 'Lighting design'],
       image: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
     },
     {
-      icon: <LampCeiling className="h-12 w-12 text-red-600" />,
+      icon: <LampCeiling className="text-red-600" />,
       title: 'BATHROOM REMODELING',
       description: 'Create your dream bathroom with our comprehensive remodeling services.',
       features: ['Tile installation', 'Fixture upgrades', 'Vanity installation'],
       image: 'https://images.unsplash.com/photo-1631048499052-e6d9f305d2c0?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     },
     {
-      icon: <Paintbrush className="h-12 w-12 text-red-600" />,
+      icon: <Paintbrush className="text-red-600" />,
       title: 'INTERIOR FINISHING',
       description: 'Expert interior finishing services to perfect every detail of your space.',
       features: ['Custom trim work', 'Paint services', 'Door installation'],
       image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
     },
     {
-      icon: <Hammer className="h-12 w-12 text-red-600" />,
+      icon: <Hammer className="text-red-600" />,
       title: 'ROOFING, SIDING, AND GUTTERS',
-      description: 'High-quality exterior services designed to protect your home, boost curb appeal, and ensure long-lasting durability.',
+      description: 'High-quality exterior services designed to ensure long-lasting durability.',
       features: ['Full roof replacements','Siding installation','Gutter installation'],
       image: 'https://images.unsplash.com/photo-1678694180534-974017792a3e?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     },
     {
-      icon: <Warehouse className="h-12 w-12 text-red-600" />,
+      icon: <Warehouse className="text-red-600" />,
       title: 'MASONRY SERVICES',
       description: 'Expert masonry craftsmanship for durable, beautiful structures that stand the test of time.',
       features: ['Brick & block installation', 'Stonework installation', 'Custom stonework'],
       image: 'https://images.unsplash.com/photo-1761637823941-0ffae96ec487?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     },
     {
-      icon: <Building className="h-12 w-12 text-red-600" />,
+      icon: <Building className="text-red-600" />,
       title: 'CONCRETE SERVICES',
       description: 'Reliable concrete installation and repair for long-lasting strength and durability.',
       features: [
@@ -60,9 +60,9 @@ const Services = () => {
       image: 'https://images.unsplash.com/photo-1623625434531-d130448273c1?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     },
     {
-      icon: <BrickWall className="h-12 w-12 text-red-600" />,
+      icon: <BrickWall className="text-red-600" />,
       title: 'HARDSCAPE, WALLS & PAVERS',
-      description: 'Expert hardscape services that enhance outdoor living spaces with durable materials, beautiful designs, and long-lasting craftsmanship.',
+      description: 'Expert hardscape services that enhance outdoor living spaces with beautiful designs.',
       features: [
         'Retaining wall installation',
         'Paver patios & walkways',
@@ -116,9 +116,9 @@ const Services = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.2 }}
                   viewport={{ once: true }}
-                  className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+                  className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full"
                 >
-                  <div className="md:flex">
+                  <div className="md:flex h-full">
                     <div className="md:w-1/2">
                       <img
                         src={service.image}
@@ -128,13 +128,15 @@ const Services = () => {
                     </div>
                     <div className="md:w-1/2 p-8">
                       <div className="flex items-center mb-4">
-                        {service.icon}
+                        <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+                          {service.icon}
+                        </div>
                         <h3 className="text-xl font-bold text-gray-900 ml-3">{service.title}</h3>
                       </div>
                       <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
                       <ul className="space-y-2">
-                        {service.features.map((feature, featureIndex) => (
-                          <li key={featureIndex} className="flex items-center text-gray-600">
+                        {service.features.map((feature) => (
+                          <li key={feature} className="flex items-center text-gray-600">
                             <span className="h-2 w-2 bg-red-600 rounded-full mr-3"></span>
                             {feature}
                           </li>

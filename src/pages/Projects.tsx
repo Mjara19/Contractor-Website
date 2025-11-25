@@ -15,36 +15,6 @@ const projects = [
   },
   {
     id: 2,
-    title: 'KITCHEN PORCELAIN TILE FLOOR',
-    description: 'Large-format porcelain tiles laid with a leveling system for a perfectly even finish.',
-    image: '/images/Project 7.jpg',
-    category: 'Kitchen Remodeling',
-    imageFit: 'cover',
-    imagePosition: 'bottomn center',
-    imageHeight: 300
-  },
-  {
-    id: 3,
-    title: 'BACKYARD PAVER WALKWAY',
-    description: 'A custom-designed paver walkway installed along the side of the home.',
-    image: '/images/Project 2.jpg',
-    category: 'HARDSCAPE, WALLS & PAVERS',
-    imageFit: 'cover',
-    imagePosition: 'top center', 
-    imageHeight: 300
-  },
-  {
-    id: 4,
-    title: 'PAVER BORDER & STONE PATH',
-    description: 'A clean decorative stone walkway and border were installed to access around this pool.',
-    image: '/images/Project 3.jpg',
-    category: 'HARDSCAPE, WALLS & PAVERS',
-    imageFit: 'cover',
-    imagePosition: '50% 80%',
-    imageHeight: 300
-  },
-  {
-    id: 5,
     title: 'CUSTOM TILE SHOWER',
     description: 'A custom walk-in shower with new wall tile, mosaic accent strip, and penny-tile flooring.',
     image: '/images/Project 4.jpg',
@@ -54,23 +24,53 @@ const projects = [
     imageHeight: 300
   },
   {
+    id: 3,
+    title: 'WAINSCOTING & PAINTING',
+    description: 'Fresh interior paint and detailed wainscoting trim installation.',
+    image: '/images/Project 6.jpg',
+    category: 'INTERIOR FINISHING',
+    imageFit: 'cover',
+    imagePosition: 'center',
+    imageHeight: 300
+  },
+  {
+    id: 4,
+    title: 'KITCHEN PORCELAIN TILE FLOOR',
+    description: 'Large-format porcelain tiles laid with a leveling system for a perfectly even finish.',
+    image: '/images/Project 7.jpg',
+    category: 'Kitchen Remodeling',
+    imageFit: 'cover',
+    imagePosition: 'bottomn center',
+    imageHeight: 300
+  },
+  {
+    id: 5,
+    title: 'BACKYARD PAVER WALKWAY',
+    description: 'A custom-designed paver walkway installed along the side of the home.',
+    image: '/images/Project 2.jpg',
+    category: 'HARDSCAPE, WALLS & PAVERS',
+    imageFit: 'cover',
+    imagePosition: 'top center', 
+    imageHeight: 300
+  },
+  {
     id: 6,
+    title: 'PAVER BORDER & STONE PATH',
+    description: 'A clean decorative stone walkway and border were installed to access around this pool.',
+    image: '/images/Project 3.jpg',
+    category: 'HARDSCAPE, WALLS & PAVERS',
+    imageFit: 'cover',
+    imagePosition: '50% 80%',
+    imageHeight: 300
+  },
+  {
+    id: 7,
     title: 'CONCRETE SIDEWALK',
     description: 'A freshly poured concrete sidewalk installed along the home.',
     image: '/images/Project 8.jpg',
     category: 'CONCRETE SERVICES',
     imageFit: 'cover',
     imagePosition: '50% 40%',
-    imageHeight: 300
-  },
-  {
-    id: 7,
-    title: 'WAINSCOTING & PAINTING',
-    description: 'Fresh interior paint and detailed wainscoting trim installation',
-    image: '/images/Project 6.jpg',
-    category: 'INTERIOR FINISHING',
-    imageFit: 'cover',
-    imagePosition: 'center',
     imageHeight: 300
   },
   {

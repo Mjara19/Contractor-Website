@@ -130,9 +130,9 @@ const Home = () => {
                   >
                     <Clock className="h-8 w-8 text-red-600" />
                   </motion.div>
-                  <h3 className="text-xl font-bold mb-4 text-gray-900">HOME ADDITIONS</h3>
+                  <h3 className="text-xl font-bold mb-4 text-gray-900">HOME RENOVATION</h3>
                   <p className="text-gray-600 leading-relaxed">
-                    Expand your living space with professionally designed additions built on decades of construction expertise.
+                    Enhance your home with custom renovations designed to improve comfort, functionality, and long-lasting value.
                   </p>
                 </div>
               </AnimatedCard>
@@ -273,13 +273,13 @@ const Home = () => {
                 <motion.img
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.3 }}
-                  src="https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                  alt="Kitchen Remodel"
+                  src="/images/Project 1.jpg"
+                  alt="Paver Walkway"
                   className="w-full h-64 object-cover"
                 />
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 text-gray-900">MODERN KITCHEN REMODEL</h3>
-                  <p className="text-gray-600">Complete kitchen renovation with custom cabinets and high-end finishes.</p>
+                  <h3 className="text-xl font-bold mb-2 text-gray-900">PAVER WALKWAY</h3>
+                  <p className="text-gray-600">A custom paver walkway installed at the front entrance.</p>
                 </div>
               </AnimatedCard>
 
@@ -287,13 +287,14 @@ const Home = () => {
                 <motion.img
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.3 }}
-                  src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                  alt="Bathroom Renovation"
+                  src="/images/Project 4.jpg"
+                  alt="Custom Tile Shower"
                   className="w-full h-64 object-cover"
+                  style={{ objectPosition: 'center top' }}
                 />
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 text-gray-900">LUXURY BATHROOM</h3>
-                  <p className="text-gray-600">Spa-like bathroom transformation with modern fixtures and tile work.</p>
+                  <h3 className="text-xl font-bold mb-2 text-gray-900">CUSTOM TILE SHOWER</h3>
+                  <p className="text-gray-600">A custom walk-in shower with new wall tile, mosaic accent strip, and penny-tile flooring.</p>
                 </div>
               </AnimatedCard>
 
@@ -301,13 +302,13 @@ const Home = () => {
                 <motion.img
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.3 }}
-                  src="https://images.unsplash.com/photo-1449844908441-8829872d2607?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                  alt="Home Addition"
+                  src="/images/Project 6.jpg"
+                  alt="Wainscoting and Painting"
                   className="w-full h-64 object-cover"
                 />
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 text-gray-900">CUSTOM HOME ADDITION</h3>
-                  <p className="text-gray-600">Two-story addition with seamless integration to existing structure.</p>
+                  <h3 className="text-xl font-bold mb-2 text-gray-900">WAINSCOTING & PAINTING</h3>
+                  <p className="text-gray-600">Fresh interior paint and detailed wainscoting trim installation.</p>
                 </div>
               </AnimatedCard>
             </div>
