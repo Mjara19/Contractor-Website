@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Home, Wrench, Hammer, Paintbrush, Ruler, Warehouse, ArrowRight, BrickWall, Braces, Building, LampCeiling, LampDesk } from 'lucide-react';
+import { Home, Wrench, Hammer, Paintbrush, Ruler, Warehouse, ArrowRight, BrickWall, Braces, Building, LampCeiling, LampDesk, FenceIcon } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 
@@ -36,10 +36,10 @@ const Services = () => {
     },
     {
       icon: <Hammer className="text-red-600" />,
-      title: 'ROOFING, SIDING, AND GUTTERS',
-      description: 'High-quality exterior services designed to ensure long-lasting durability.',
-      features: ['Full roof replacements','Siding installation','Gutter installation'],
-      image: 'https://images.unsplash.com/photo-1678694180534-974017792a3e?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+      title: 'FLOORING',
+      description: 'High-quality flooring installation designed to upgrade your home’s look, durability, and value.',
+      features: ['Laminate & vinyl plank installation','Hardwood floor installation','Subfloor repair & leveling'],
+      image: 'https://images.unsplash.com/photo-1722603931789-aea8bd4f5d01?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     },
     {
       icon: <Warehouse className="text-red-600" />,
@@ -69,8 +69,19 @@ const Services = () => {
         'Stone & block landscaping'
       ],
       image: 'https://images.unsplash.com/photo-1761637822987-282e320d7ee9?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+    },
+    {
+      icon: <FenceIcon className="text-red-600" />,
+      title: 'FENCING',
+      description: 'Professional fencing installation that boosts privacy, security, and curb appeal with long-lasting materials.',
+      features: [
+        'Wood & vinyl fence installation',
+        'Fence repair & replacement',
+        'Gate installation'
+      ],
+      image: 'https://images.unsplash.com/photo-1583805978118-ba9a81ac1399?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     }
-  ];
+  ]
 
   return (
     <>
@@ -108,7 +119,7 @@ const Services = () => {
         {/* Services Grid */}
         <div className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center justify-center">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center justify-center">
               {services.map((service, index) => (
                 <motion.div
                   key={index}
@@ -118,26 +129,26 @@ const Services = () => {
                   viewport={{ once: true }}
                   className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full"
                 >
-                  <div className="md:flex h-full">
-                    <div className="md:w-1/2">
+                  <div className="flex flex-col h-full">
+                    <div className="w-full h-48">
                       <img
                         src={service.image}
                         alt={service.title}
-                        className="w-full h-64 md:h-full object-cover"
+                        className="w-full h-full object-cover"
                       />
                     </div>
-                    <div className="md:w-1/2 p-8">
-                      <div className="flex items-center mb-4">
-                        <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="p-6 flex-1 flex flex-col">
+                      <div className="flex items-center mb-3">
+                        <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
                           {service.icon}
                         </div>
-                        <h3 className="text-xl font-bold text-gray-900 ml-3">{service.title}</h3>
+                        <h3 className="text-lg font-bold text-gray-900 ml-2">{service.title}</h3>
                       </div>
-                      <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
+                      <p className="text-gray-600 mb-4 leading-relaxed text-sm">{service.description}</p>
                       <ul className="space-y-2">
                         {service.features.map((feature) => (
-                          <li key={feature} className="flex items-center text-gray-600">
-                            <span className="h-2 w-2 bg-red-600 rounded-full mr-3"></span>
+                          <li key={feature} className="flex items-center text-gray-600 text-sm">
+                            <span className="h-2 w-2 bg-red-600 rounded-full mr-2 flex-shrink-0"></span>
                             {feature}
                           </li>
                         ))}
