@@ -77,7 +77,7 @@ const Navbar = () => {
             {/* Social Media Icons */}
             <div className="flex items-center space-x-3 ml-4">
               <motion.a
-                href="https://www.tiktok.com/@jarahermel?is_from_webapp=1&sender_device=pc"
+                href="https://www.tiktok.com/@hmdproconstruction?is_from_webapp=1&sender_device=pc"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="TikTok"

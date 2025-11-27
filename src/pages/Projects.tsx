@@ -1,8 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
+import { X } from 'lucide-react';
 
 const projects = [
+  {
+    id: 1,
+    title: 'EXTERIOR FACELIFT',
+    description: 'Updated the home’s exterior with a new stone façade and improved elevated deck.',
+    image: '/images/Project 11(2).jpg',
+    category: 'MASONRY SERVICES',
+    imageFit: 'cover',
+    imagePosition: 'center',
+    imageHeight: 280
+  },
+  {
+    id: 1,
+    title: 'BATHROOM REMODEL',
+    description: 'A full bathroom remodel with new tile, fixtures, and flooring.',
+    image: 'images/Project 12.jpg',
+    category: 'BATHROOM REMODELING',
+    imageFit: 'cover',
+    imagePosition: 'center',
+    imageHeight: 280
+  },
   {
     id: 1,
     title: 'PAVER WALKWAY',
@@ -11,7 +32,17 @@ const projects = [
     category: 'HARDSCAPE, WALLS & PAVERS',
     imageFit: 'cover',
     imagePosition: 'center',
-    imageHeight: 300
+    imageHeight: 280
+  },
+  {
+    id: 1,
+    title: 'SHOWER REMODEL',
+    description: 'A full shower upgrade featuring new wall tile, niche accents, and frameless glass.',
+    image: '/images/Project 10.jpg',
+    category: 'BATHROOM REMODELING',
+    imageFit: 'cover',
+    imagePosition: '50% 30%',
+    imageHeight: 280
   },
   {
     id: 2,
@@ -21,7 +52,7 @@ const projects = [
     category: 'BATHROOM REMODELING',
     imageFit: 'cover',
     imagePosition: 'top center',
-    imageHeight: 300
+    imageHeight: 280
   },
   {
     id: 3,
@@ -31,7 +62,7 @@ const projects = [
     category: 'INTERIOR FINISHING',
     imageFit: 'cover',
     imagePosition: 'center',
-    imageHeight: 300
+    imageHeight: 280
   },
   {
     id: 4,
@@ -41,7 +72,7 @@ const projects = [
     category: 'Kitchen Remodeling',
     imageFit: 'cover',
     imagePosition: 'bottomn center',
-    imageHeight: 300
+    imageHeight: 280
   },
   {
     id: 5,
@@ -51,7 +82,7 @@ const projects = [
     category: 'HARDSCAPE, WALLS & PAVERS',
     imageFit: 'cover',
     imagePosition: 'top center', 
-    imageHeight: 300
+    imageHeight: 280
   },
   {
     id: 6,
@@ -61,7 +92,7 @@ const projects = [
     category: 'HARDSCAPE, WALLS & PAVERS',
     imageFit: 'cover',
     imagePosition: '50% 80%',
-    imageHeight: 300
+    imageHeight: 280
   },
   {
     id: 7,
@@ -71,7 +102,7 @@ const projects = [
     category: 'CONCRETE SERVICES',
     imageFit: 'cover',
     imagePosition: '50% 40%',
-    imageHeight: 300
+    imageHeight: 280
   },
   {
     id: 8,
@@ -81,7 +112,7 @@ const projects = [
     category: 'Interior Finishing',
     imageFit: 'cover',
     imagePosition: '50% 20%',
-    imageHeight: 300
+    imageHeight: 280
   },
   {
     id: 9,
@@ -91,11 +122,13 @@ const projects = [
     category: 'HARDSCAPE, WALLS & PAVERS',
     imageFit: 'cover',
     imagePosition: 'center',
-    imageHeight: 300
+    imageHeight: 280
   }
 ];
 
 const Projects = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   return (
     <>
       <Helmet>
@@ -141,15 +174,21 @@ const Projects = () => {
                   viewport={{ once: true }}
                   className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
                 >
-                  <div style={{ height: (project.imageHeight ? `${project.imageHeight}px` : '260px') }} className="w-full overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      style={{ objectFit: (project.imageFit as React.CSSProperties['objectFit']) || 'cover', objectPosition: (project.imagePosition || 'center') }}
-                      className="w-full h-full"
-                    />
+                  <div style={{ height: (project.imageHeight ? `${project.imageHeight}px` : '280px') }} className="w-full overflow-hidden">
+                    <button
+                      onClick={() => setSelectedImage(project.image)}
+                      className="w-full h-full p-0 border-none bg-none cursor-pointer hover:scale-105 transition-transform duration-300"
+                      aria-label={`View full image of ${project.title}`}
+                    >
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        style={{ objectFit: (project.imageFit as React.CSSProperties['objectFit']) || 'cover', objectPosition: (project.imagePosition || 'center') }}
+                        className="w-full h-full"
+                      />
+                    </button>
                   </div>
-                  <div className="p-6">
+                  <div className="p-8">
                     <span className="inline-block bg-red-100 text-red-600 px-3 py-1 rounded-full text-sm font-bold mb-3">
                       {project.category.toUpperCase()}
                     </span>
@@ -197,6 +236,38 @@ const Projects = () => {
           </div>
         </div>
       </div>
+
+      {/* Image Modal */}
+      {selectedImage && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={() => setSelectedImage(null)}
+          className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4"
+        >
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+            onClick={(e) => e.stopPropagation()}
+            className="relative max-w-4xl max-h-[90vh] w-full h-full flex items-center justify-center"
+          >
+            <img
+              src={selectedImage}
+              alt="Full view"
+              className="max-w-full max-h-full object-contain rounded-lg"
+            />
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-4 right-4 bg-white text-black p-2 rounded-full hover:bg-gray-200 transition-colors z-10"
+              aria-label="Close modal"
+            >
+              <X className="h-6 w-6" />
+            </button>
+          </motion.div>
+        </motion.div>
+      )}
     </>
   );
 };

@@ -1,5 +1,5 @@
-import React from 'react';
-import { ArrowRight, Award, Clock, PenTool as Tool, Phone, Mail, Users } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowRight, Award, Clock, PenTool as Tool, Phone, Users, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import AnimatedCounter from '../components/AnimatedCounter';
@@ -8,6 +8,8 @@ import ParallaxSection from '../components/ParallaxSection';
 import { Helmet } from 'react-helmet-async';
 
 const Home = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   return (
     <>
       <Helmet>
@@ -269,47 +271,65 @@ const Home = () => {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <AnimatedCard delay={0} className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                <motion.img
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.3 }}
-                  src="/images/Project 1.jpg"
-                  alt="Paver Walkway"
-                  className="w-full h-64 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 text-gray-900">PAVER WALKWAY</h3>
-                  <p className="text-gray-600">A custom paver walkway installed at the front entrance.</p>
+                <button
+                  onClick={() => setSelectedImage('/images/Project 11(2).jpg')}
+                  className="w-full h-80 p-0 border-none bg-none cursor-pointer overflow-hidden"
+                  aria-label="View full image of Exterior Facelift"
+                >
+                  <motion.img
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.3 }}
+                    src="/images/Project 11(2).jpg"
+                    alt="Exterior Facelift"
+                    className="w-full h-full object-cover"
+                  />
+                </button>
+                <div className="p-8">
+                  <h3 className="text-xl font-bold mb-2 text-gray-900">EXTERIOR FACELIFT</h3>
+                  <p className="text-gray-600">Updated the home’s exterior with a new stone façade and improved elevated deck.</p>
                 </div>
               </AnimatedCard>
 
               <AnimatedCard delay={0.2} className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                <motion.img
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.3 }}
-                  src="/images/Project 4.jpg"
-                  alt="Custom Tile Shower"
-                  className="w-full h-64 object-cover"
-                  style={{ objectPosition: 'center top' }}
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 text-gray-900">CUSTOM TILE SHOWER</h3>
-                  <p className="text-gray-600">A custom walk-in shower with new wall tile, mosaic accent strip, and penny-tile flooring.</p>
+                <button
+                  onClick={() => setSelectedImage('images/Project 12.jpg')}
+                  className="w-full h-80 p-0 border-none bg-none cursor-pointer overflow-hidden"
+                  aria-label="View full image of Bathroom Remodel"
+                >
+                  <motion.img
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.3 }}
+                    src="images/Project 12.jpg"
+                    alt="Bathroom Remodel"
+                    className="w-full h-full object-cover"
+                    style={{ objectPosition: 'center' }}
+                  />
+                </button>
+                <div className="p-8">
+                  <h3 className="text-xl font-bold mb-2 text-gray-900">BATHROOM REMODEL</h3>
+                   <p className="text-gray-600">A full bathroom remodel with new tile, fixtures, and flooring for a fresh, updated look.</p>
                 </div>
               </AnimatedCard>
 
               <AnimatedCard delay={0.4} className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                <motion.img
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.3 }}
-                  src="/images/Project 6.jpg"
-                  alt="Wainscoting and Painting"
-                  className="w-full h-64 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 text-gray-900">WAINSCOTING & PAINTING</h3>
-                  <p className="text-gray-600">Fresh interior paint and detailed wainscoting trim installation.</p>
+                <button
+                  onClick={() => setSelectedImage('/images/Project 1.jpg')}
+                  className="w-full h-80 p-0 border-none bg-none cursor-pointer overflow-hidden"
+                  aria-label="View full image of Paver Walkway"
+                >
+                  <motion.img
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.3 }}
+                    src="/images/Project 1.jpg"
+                    alt="Paver Walkway"
+                    className="w-full h-full object-cover"
+                  />
+                </button>
+                <div className="p-8">
+                  <h3 className="text-xl font-bold mb-2 text-gray-900">PAVER WALKWAY</h3>
+                  <p className="text-gray-600">A custom paver walkway installed at the front entrance.</p>
                 </div>
               </AnimatedCard>
             </div>
@@ -371,6 +391,38 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      {/* Image Modal */}
+      {selectedImage && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={() => setSelectedImage(null)}
+          className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4"
+        >
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+            onClick={(e) => e.stopPropagation()}
+            className="relative max-w-4xl max-h-[90vh] w-full h-full flex items-center justify-center"
+          >
+            <img
+              src={selectedImage}
+              alt="Full view"
+              className="max-w-full max-h-full object-contain rounded-lg"
+            />
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-4 right-4 bg-white text-black p-2 rounded-full hover:bg-gray-200 transition-colors z-10"
+              aria-label="Close modal"
+            >
+              <X className="h-6 w-6" />
+            </button>
+          </motion.div>
+        </motion.div>
+      )}
     </>
   );
 };
