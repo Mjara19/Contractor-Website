@@ -205,10 +205,11 @@ const Contact = () => {
                       <option value="Kitchen Remodeling">Kitchen Remodeling</option>
                       <option value="Bathroom Remodeling">Bathroom Remodeling</option>
                       <option value="Interior Finishing">Interior Finishing</option>
-                      <option value="Roofing, Siding, and Gutters">Roofing, Siding, and Gutters</option>
+                      <option value="Flooring">Flooring</option>
                       <option value="Masonry Services">Masonry Services</option>
                       <option value="Concrete Services">Concrete Services</option>
                       <option value="Hardscape, Walls & Pavers">Hardscape, Walls & Pavers</option>
+                      <option value="Fencing">Fencing</option>
                       <option value="Other">Other</option>
                     </select>
                   </div>
