@@ -15,7 +15,7 @@ const projects = [
     imageHeight: 280
   },
   {
-    id: 1,
+    id: 2,
     title: 'BATHROOM REMODEL',
     description: 'A full bathroom remodel with new tile, fixtures, and flooring.',
     image: 'images/Project 12.jpg',
@@ -25,7 +25,7 @@ const projects = [
     imageHeight: 280
   },
   {
-    id: 1,
+    id: 3,
     title: 'PAVER WALKWAY',
     description: 'A custom paver walkway installed at the front entrance.',
     image: '/images/Project 1.jpg',
@@ -35,7 +35,7 @@ const projects = [
     imageHeight: 280
   },
   {
-    id: 1,
+    id: 4,
     title: 'SHOWER REMODEL',
     description: 'A full shower upgrade featuring new wall tile, niche accents, and frameless glass.',
     image: '/images/Project 10.jpg',
@@ -45,7 +45,7 @@ const projects = [
     imageHeight: 280
   },
   {
-    id: 2,
+    id: 5,
     title: 'CUSTOM TILE SHOWER',
     description: 'A custom walk-in shower with new wall tile, mosaic accent strip, and penny-tile flooring.',
     image: '/images/Project 4.jpg',
@@ -55,7 +55,7 @@ const projects = [
     imageHeight: 280
   },
   {
-    id: 3,
+    id: 6,
     title: 'WAINSCOTING & PAINTING',
     description: 'Fresh interior paint and detailed wainscoting trim installation.',
     image: '/images/Project 6.jpg',
@@ -65,7 +65,7 @@ const projects = [
     imageHeight: 280
   },
   {
-    id: 4,
+    id: 7,
     title: 'KITCHEN PORCELAIN TILE FLOOR',
     description: 'Large-format porcelain tiles laid with a leveling system for a perfectly even finish.',
     image: '/images/Project 7.jpg',
@@ -75,7 +75,7 @@ const projects = [
     imageHeight: 280
   },
   {
-    id: 5,
+    id: 8,
     title: 'BACKYARD PAVER WALKWAY',
     description: 'A custom-designed paver walkway installed along the side of the home.',
     image: '/images/Project 2.jpg',
@@ -85,7 +85,7 @@ const projects = [
     imageHeight: 280
   },
   {
-    id: 6,
+    id: 9,
     title: 'PAVER BORDER & STONE PATH',
     description: 'A clean decorative stone walkway and border were installed to access around this pool.',
     image: '/images/Project 3.jpg',
@@ -95,7 +95,7 @@ const projects = [
     imageHeight: 280
   },
   {
-    id: 7,
+    id: 10,
     title: 'CONCRETE SIDEWALK',
     description: 'A freshly poured concrete sidewalk installed along the home.',
     image: '/images/Project 8.jpg',
@@ -105,7 +105,7 @@ const projects = [
     imageHeight: 280
   },
   {
-    id: 8,
+    id: 11,
     title: 'CUSTOM WALL PANELING',
     description: 'Decorative wall trim paneling was installed along the staircase.',
     image: '/images/Project 5.jpg',
@@ -115,7 +115,7 @@ const projects = [
     imageHeight: 280
   },
   {
-    id: 9,
+    id: 12,
     title: 'POOL DECK',
     description: 'A durable composite deck built around the pool.',
     image: '/images/Project 9.jpg',
