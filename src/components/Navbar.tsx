@@ -101,7 +101,7 @@ const Navbar = () => {
                 <Facebook className="h-5 w-5" />
               </motion.a>
               <motion.a
-                href="https://www.instagram.com/jaraher19/?utm_source=ig_web_button_share_sheet"
+                href="https://www.instagram.com/hmdproconstruction?igsh=ZG9rbWx3YTk0MDYx&utm_source=qr"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"

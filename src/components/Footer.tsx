@@ -32,8 +32,8 @@ const Footer = () => {
                 </a>
               </a>
               {/* Instagram */}
-              <a href="https://www.instagram.com/jaraher19/?utm_source=ig_web_button_share_sheet" className="flex items-center justify-center bg-gray-800 rounded transition-colors h-12 w-12 text-gray-400 hover:text-white" aria-label="Instagram">
-                <a href="https://www.instagram.com/jaraher19/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center bg-gray-800 rounded transition-colors h-12 w-12 text-gray-400 hover:text-white" aria-label="Instagram">
+              <a href="https://www.instagram.com/hmdproconstruction?igsh=ZG9rbWx3YTk0MDYx&utm_source=qr" className="flex items-center justify-center bg-gray-800 rounded transition-colors h-12 w-12 text-gray-400 hover:text-white" aria-label="Instagram">
+                <a href="https://www.instagram.com/hmdproconstruction?igsh=ZG9rbWx3YTk0MDYx&utm_source=qr" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center bg-gray-800 rounded transition-colors h-12 w-12 text-gray-400 hover:text-white" aria-label="Instagram">
                   <Instagram className="h-6 w-6" />
                 </a>
               </a>
