@@ -7,6 +7,7 @@ const TermsOfService = () => {
     <>
       <Helmet>
         <title>Terms of Service | HMD Pro Construction</title>
+        <meta name="description" content="Terms of service for HMD Pro Construction. Review our terms and conditions for construction services and estimates." />
       </Helmet>
       <div className="bg-white min-h-screen">
         <div className="max-w-3xl mx-auto px-4 py-16">

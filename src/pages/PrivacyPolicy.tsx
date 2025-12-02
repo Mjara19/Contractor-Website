@@ -6,6 +6,7 @@ const PrivacyPolicy = () => {
     <>
       <Helmet>
         <title>Privacy Policy | HMD Pro Construction</title>
+        <meta name="description" content="Privacy policy for HMD Pro Construction. Learn how we collect, use, and protect your personal information." />
       </Helmet>
       <div className="bg-white min-h-screen">
         <div className="max-w-4xl mx-auto px-4 py-16">

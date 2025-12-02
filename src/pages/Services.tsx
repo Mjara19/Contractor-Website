@@ -87,6 +87,7 @@ const Services = () => {
     <>
       <Helmet>
         <title>Services | HMD Pro Construction</title>
+        <meta name="description" content="Full range of construction services: kitchen remodeling, bathroom remodeling, home renovations, hardscape, concrete, and interior finishing. Serving New Jersey." />
       </Helmet>
       <div>
         {/* Hero Section */}

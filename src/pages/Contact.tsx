@@ -104,6 +104,7 @@ const Contact = () => {
     <>
       <Helmet>
         <title>Contact | HMD Pro Construction</title>
+        <meta name="description" content="Contact HMD Pro Construction for a free estimate. Call (732) 325-5895 or fill out our contact form. Serving New Jersey with professional construction services." />
       </Helmet>
       <div>
         {/* Hero Section */}

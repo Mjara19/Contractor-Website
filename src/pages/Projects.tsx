@@ -133,6 +133,7 @@ const Projects = () => {
     <>
       <Helmet>
         <title>Projects | HMD Pro Construction</title>
+        <meta name="description" content="View completed construction projects showcasing our expertise in kitchen remodels, bathroom renovations, hardscaping, and home improvements across New Jersey." />
       </Helmet>
       <div>
         {/* Hero Section */}

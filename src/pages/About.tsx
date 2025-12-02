@@ -9,6 +9,7 @@ const About = () => {
     <>
       <Helmet>
         <title>About | HMD Pro Construction</title>
+        <meta name="description" content="Learn about HMD Pro Construction. Founded by Hermel Jara with 20+ years of hands-on construction experience. Specializing in quality, integrity, and customer focus." />
       </Helmet>
       <div>
         {/* Hero Section */}

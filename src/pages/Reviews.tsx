@@ -8,6 +8,7 @@ const Reviews = () => {
     <>
       <Helmet>
         <title>Reviews | HMD Pro Construction</title>
+        <meta name="description" content="Read reviews from satisfied customers about our construction services. See why homeowners trust HMD Pro Construction." />
       </Helmet>
       <div>
         {/* Hero Section */}
