@@ -26,8 +26,8 @@ const Footer = () => {
                 </svg>
               </a>
               {/* Facebook */}
-              <a href="https://www.facebook.com/jara.hermel" className="flex items-center justify-center bg-gray-800 rounded transition-colors h-12 w-12 text-gray-400 hover:text-white" aria-label="Facebook">
-                <a href="https://www.facebook.com/jara.hermel" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center bg-gray-800 rounded transition-colors h-12 w-12 text-gray-400 hover:text-white" aria-label="Facebook">
+              <a href="https://www.facebook.com/share/1A2ciamyNi/?mibextid=wwXIfr" className="flex items-center justify-center bg-gray-800 rounded transition-colors h-12 w-12 text-gray-400 hover:text-white" aria-label="Facebook">
+                <a href="https://www.facebook.com/share/1A2ciamyNi/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center bg-gray-800 rounded transition-colors h-12 w-12 text-gray-400 hover:text-white" aria-label="Facebook">
                   <Facebook className="h-6 w-6" />
                 </a>
               </a>
