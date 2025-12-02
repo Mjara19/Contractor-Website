@@ -90,7 +90,7 @@ const Navbar = () => {
                 </svg>
               </motion.a>
               <motion.a
-                href="https://www.facebook.com/jara.hermel"
+                href="https://www.facebook.com/share/1A2ciamyNi/?mibextid=wwXIfr"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
