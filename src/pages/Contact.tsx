@@ -1,8 +1,14 @@
 import React, { useState, useRef } from 'react';
-import { Mail, Phone, MapPin, Clock, ArrowRight } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, ArrowRight, X, Image as ImageIcon } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import ReCAPTCHA from 'react-google-recaptcha';
+
+interface ImageFile {
+  file: File;
+  preview: string;
+  base64: string;
+}
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +20,8 @@ const Contact = () => {
   });
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const [images, setImages] = useState<ImageFile[]>([]);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY || '';
 
@@ -41,6 +49,71 @@ const Contact = () => {
     setRecaptchaToken(token);
   };
 
+  // Convert file to base64
+  const fileToBase64 = (file: File): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = () => reject(new Error(`Failed to read file: ${file.name}`));
+    });
+  };
+
+  // Handle image selection
+  const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (!files) return;
+
+    const MAX_IMAGES = 10;
+    const MAX_SIZE = 5 * 1024 * 1024; // 5MB per image
+    const validImageTypes = new Set(['image/jpeg', 'image/jpg', 'image/png', 'image/webp']);
+
+    // Check total images limit
+    if (images.length + files.length > MAX_IMAGES) {
+      alert(`You can upload a maximum of ${MAX_IMAGES} images.`);
+      return;
+    }
+
+    const newImages: ImageFile[] = [];
+
+    for (const file of Array.from(files)) {
+      // Validate file type
+      if (!validImageTypes.has(file.type)) {
+        alert(`${file.name} is not a valid image format. Please upload JPEG, PNG, or WebP images.`);
+        continue;
+      }
+
+      // Validate file size
+      if (file.size > MAX_SIZE) {
+        alert(`${file.name} is too large. Maximum size is 5MB per image.`);
+        continue;
+      }
+
+      try {
+        const base64 = await fileToBase64(file);
+        const preview = URL.createObjectURL(file);
+        newImages.push({ file, preview, base64 });
+      } catch (error) {
+        console.error(`Error processing ${file.name}:`, error);
+        alert(`Error processing ${file.name}. Please try again.`);
+      }
+    }
+
+    setImages([...images, ...newImages]);
+    
+    // Reset file input
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
+  };
+
+  // Remove image
+  const removeImage = (index: number) => {
+    const imageToRemove = images[index];
+    URL.revokeObjectURL(imageToRemove.preview);
+    setImages(images.filter((_, i) => i !== index));
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -50,12 +123,20 @@ const Contact = () => {
     }
   
     try {
+      // Prepare images data (base64 strings with metadata)
+      const imagesData = images.map(img => ({
+        base64: img.base64,
+        filename: img.file.name,
+        contentType: img.file.type
+      }));
+
       const response = await fetch("https://7sqnme6o32.execute-api.us-east-2.amazonaws.com/contactFormHandler", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...formData,
-          recaptchaToken: recaptchaToken
+          recaptchaToken: recaptchaToken,
+          images: imagesData
         }),
       });
   
@@ -68,6 +149,9 @@ const Contact = () => {
           projectType: '',
           message: '',
         });
+        // Clean up image previews
+        images.forEach(img => URL.revokeObjectURL(img.preview));
+        setImages([]);
         setRecaptchaToken(null);
         recaptchaRef.current?.reset();
       } else {
@@ -228,6 +312,58 @@ const Contact = () => {
                       placeholder="Please describe your project in detail..."
                       required
                     ></textarea>
+                  </div>
+                  <div>
+                    <label htmlFor="images" className="block text-gray-700 font-semibold mb-2">
+                      Photos (Optional)
+                    </label>
+                    <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 hover:border-red-500 transition-colors">
+                      <input
+                        type="file"
+                        id="images"
+                        ref={fileInputRef}
+                        onChange={handleImageChange}
+                        accept="image/jpeg,image/jpg,image/png,image/webp"
+                        multiple
+                        className="hidden"
+                      />
+                      <label
+                        htmlFor="images"
+                        className="cursor-pointer flex flex-col items-center justify-center py-4"
+                      >
+                        <ImageIcon className="h-10 w-10 text-gray-400 mb-2" />
+                        <span className="text-sm text-gray-600 mb-1">
+                          Click to upload photos or drag and drop
+                        </span>
+                        <span className="text-xs text-gray-500">
+                          PNG, JPG, WEBP up to 5MB each (Max 5 images)
+                        </span>
+                      </label>
+                    </div>
+                    {images.length > 0 && (
+                      <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-4">
+                        {images.map((image, index) => (
+                          <div key={`${image.file.name}-${index}`} className="relative group">
+                            <img
+                              src={image.preview}
+                              alt={`Preview ${index + 1}`}
+                              className="w-full h-32 object-cover rounded-lg border-2 border-gray-200"
+                            />
+                            <button
+                              type="button"
+                              onClick={() => removeImage(index)}
+                              className="absolute -top-2 -right-2 bg-red-600 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-700"
+                              aria-label="Remove image"
+                            >
+                              <X className="h-4 w-4" />
+                            </button>
+                            <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-xs p-1 rounded-b-lg truncate">
+                              {image.file.name}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                   {RECAPTCHA_SITE_KEY && (
                     <div className="flex justify-center">
