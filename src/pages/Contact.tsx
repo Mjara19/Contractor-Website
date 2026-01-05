@@ -22,6 +22,9 @@ const Contact = () => {
   const recaptchaRef = useRef<ReCAPTCHA>(null);
   const [images, setImages] = useState<ImageFile[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const dragCounterRef = useRef(0);
+  const dropZoneRef = useRef<HTMLButtonElement>(null);
 
   const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY || '';
 
@@ -59,9 +62,8 @@ const Contact = () => {
     });
   };
 
-  // Handle image selection
-  const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = e.target.files;
+  // Process files (used by both file input and drag & drop)
+  const processFiles = async (files: FileList | null) => {
     if (!files) return;
 
     const MAX_IMAGES = 10;
@@ -104,6 +106,53 @@ const Contact = () => {
     // Reset file input
     if (fileInputRef.current) {
       fileInputRef.current.value = '';
+    }
+  };
+
+  // Handle image selection from file input
+  const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    await processFiles(e.target.files);
+  };
+
+  // Drag and drop handlers
+  const handleDragEnter = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    dragCounterRef.current += 1;
+    if (e.dataTransfer.types.includes('Files')) {
+      setIsDragging(true);
+    }
+  };
+
+  const handleDragLeave = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    dragCounterRef.current -= 1;
+    
+    // Only set dragging to false if we've truly left the drop zone
+    // Check if we're leaving the drop zone itself, not just a child element
+    if (dragCounterRef.current === 0) {
+      setIsDragging(false);
+    }
+  };
+
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (e.dataTransfer.types.includes('Files')) {
+      setIsDragging(true);
+    }
+  };
+
+  const handleDrop = async (e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    dragCounterRef.current = 0;
+    setIsDragging(false);
+
+    const files = e.dataTransfer.files;
+    if (files && files.length > 0) {
+      await processFiles(files);
     }
   };
 
@@ -317,7 +366,20 @@ const Contact = () => {
                     <label htmlFor="images" className="block text-gray-700 font-semibold mb-2">
                       Photos (Optional)
                     </label>
-                    <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 hover:border-red-500 transition-colors">
+                    <button
+                      type="button"
+                      ref={dropZoneRef}
+                      onDragEnter={handleDragEnter}
+                      onDragOver={handleDragOver}
+                      onDragLeave={handleDragLeave}
+                      onDrop={handleDrop}
+                      onClick={() => fileInputRef.current?.click()}
+                      className={`w-full border-2 border-dashed rounded-lg p-4 transition-colors cursor-pointer ${
+                        isDragging
+                          ? 'border-red-600 bg-red-50'
+                          : 'border-gray-300 hover:border-red-500'
+                      }`}
+                    >
                       <input
                         type="file"
                         id="images"
@@ -327,19 +389,20 @@ const Contact = () => {
                         multiple
                         className="hidden"
                       />
-                      <label
-                        htmlFor="images"
-                        className="cursor-pointer flex flex-col items-center justify-center py-4"
-                      >
-                        <ImageIcon className="h-10 w-10 text-gray-400 mb-2" />
-                        <span className="text-sm text-gray-600 mb-1">
-                          Click to upload photos or drag and drop
+                      <div className="flex flex-col items-center justify-center py-4">
+                        <ImageIcon className={`h-10 w-10 mb-2 transition-colors ${
+                          isDragging ? 'text-red-600' : 'text-gray-400'
+                        }`} />
+                        <span className={`text-sm mb-1 transition-colors ${
+                          isDragging ? 'text-red-600 font-semibold' : 'text-gray-600'
+                        }`}>
+                          {isDragging ? 'Drop photos here' : 'Click to upload photos or drag and drop'}
                         </span>
                         <span className="text-xs text-gray-500">
-                          PNG, JPG, WEBP up to 5MB each (Max 5 images)
+                          PNG, JPG, WEBP up to 5MB each (Max 10 images)
                         </span>
-                      </label>
-                    </div>
+                      </div>
+                    </button>
                     {images.length > 0 && (
                       <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-4">
                         {images.map((image, index) => (
