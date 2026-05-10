@@ -49,8 +49,10 @@ const About = () => {
                 viewport={{ once: true }}
               >
                 <img
-                  src="/images/IMG_5882.jpg"
+                  src="/images/IMG_5882.webp"
                   alt="Hermel Jara - Owner of HMD Pro Construction"
+                  loading="lazy"
+                  decoding="async"
                   className="rounded-lg shadow-xl w-full h-auto"
                 />
               </motion.div>

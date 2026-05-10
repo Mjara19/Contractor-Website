@@ -84,9 +84,9 @@ const Home = () => {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl font-bold text-gray-900 mb-4" data-aos="fade-up">OUR SERVICES</h2>
-              <div className="w-24 h-1 bg-red-600 mx-auto mb-6" data-aos="fade-up" data-aos-delay="100"></div>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">OUR SERVICES</h2>
+              <div className="w-24 h-1 bg-red-600 mx-auto mb-6"></div>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Comprehensive construction and remodeling services backed by 20+ years of hands-on experience
               </p>
             </motion.div>
@@ -197,8 +197,10 @@ const Home = () => {
                 viewport={{ once: true }}
               >
                 <img
-                  src="/images/HMD Pro Construction logo v1-01.png"
+                  src="/images/HMD_Pro_Construction_logo_v1-01.webp"
                   alt="HMD Pro Construction LLC"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-auto rounded-lg shadow-lg"
                 />
               </motion.div>
@@ -274,15 +276,17 @@ const Home = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <AnimatedCard delay={0} className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <button
-                  onClick={() => setSelectedImage('/images/Project 11(2).jpg')}
+                  onClick={() => setSelectedImage('/images/Project_11(2)-large.webp')}
                   className="w-full h-80 p-0 border-none bg-none cursor-pointer overflow-hidden"
                   aria-label="View full image of Exterior Facelift"
                 >
                   <motion.img
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.3 }}
-                    src="/images/Project 11(2).jpg"
+                    src="/images/Project_11(2).webp"
                     alt="Exterior Facelift"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover"
                   />
                 </button>
@@ -294,15 +298,17 @@ const Home = () => {
 
               <AnimatedCard delay={0.2} className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <button
-                  onClick={() => setSelectedImage('images/Project 12.jpg')}
+                  onClick={() => setSelectedImage('/images/Project_12-large.webp')}
                   className="w-full h-80 p-0 border-none bg-none cursor-pointer overflow-hidden"
                   aria-label="View full image of Bathroom Remodel"
                 >
                   <motion.img
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.3 }}
-                    src="images/Project 12.jpg"
+                    src="/images/Project_12.webp"
                     alt="Bathroom Remodel"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover"
                     style={{ objectPosition: 'center' }}
                   />
@@ -315,15 +321,17 @@ const Home = () => {
 
               <AnimatedCard delay={0.4} className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <button
-                  onClick={() => setSelectedImage('/images/Project 1.jpg')}
+                  onClick={() => setSelectedImage('/images/Project_1-large.webp')}
                   className="w-full h-80 p-0 border-none bg-none cursor-pointer overflow-hidden"
                   aria-label="View full image of Paver Walkway"
                 >
                   <motion.img
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.3 }}
-                    src="/images/Project 1.jpg"
+                    src="/images/Project_1.webp"
                     alt="Paver Walkway"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover"
                   />
                 </button>
@@ -411,6 +419,7 @@ const Home = () => {
             <img
               src={selectedImage}
               alt="Full view"
+              decoding="async"
               className="max-w-full max-h-full object-contain rounded-lg"
             />
             <button

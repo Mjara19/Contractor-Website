@@ -36,11 +36,7 @@ const FloatingCTA = () => {
               className="bg-red-600 text-white p-4 rounded-full shadow-lg hover:bg-red-700 transition-colors relative"
             >
               <MessageCircle className="h-6 w-6" />
-              <motion.div
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ repeat: Infinity, duration: 2 }}
-                className="absolute -top-1 -right-1 bg-green-500 w-4 h-4 rounded-full"
-              />
+              <span className="absolute -top-1 -right-1 bg-green-500 w-4 h-4 rounded-full animate-pulse-slow" />
             </motion.button>
 
             {/* Close Button */}

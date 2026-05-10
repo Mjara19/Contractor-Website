@@ -9,9 +9,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <img 
-              src="/images/HMD Pro Construction logo v1-01.jpg" 
-              alt="HMD Pro LLC Logo" 
+            <img
+              src="/images/HMD_Pro_Construction_logo_v1-01.webp"
+              alt="HMD Pro LLC Logo"
+              loading="lazy"
+              decoding="async"
               className="h-54 max-h-56 w-auto mb-6"
             />
             <p className="text-gray-300 mb-6 leading-relaxed">

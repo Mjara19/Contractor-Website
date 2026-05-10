@@ -123,11 +123,11 @@ const Services = () => {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center justify-center">
               {services.map((service, index) => (
                 <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 50 }}
+                  key={service.title}
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
-                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: Math.min(index, 2) * 0.1 }}
+                  viewport={{ once: true, margin: '0px 0px -100px 0px' }}
                   className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full"
                 >
                   <div className="flex flex-col h-full">
@@ -135,6 +135,8 @@ const Services = () => {
                       <img
                         src={service.image}
                         alt={service.title}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover"
                       />
                     </div>

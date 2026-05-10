@@ -3,12 +3,25 @@ import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { X } from 'lucide-react';
 
-const projects = [
+type Project = {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  imageLarge: string;
+  category: string;
+  imageFit: React.CSSProperties['objectFit'];
+  imagePosition: string;
+  imageHeight: number;
+};
+
+const projects: Project[] = [
   {
     id: 1,
     title: 'EXTERIOR FACELIFT',
     description: 'Updated the home’s exterior with a new stone façade and improved elevated deck.',
-    image: '/images/Project 11(2).jpg',
+    image: '/images/Project_11(2).webp',
+    imageLarge: '/images/Project_11(2)-large.webp',
     category: 'MASONRY SERVICES',
     imageFit: 'cover',
     imagePosition: 'center',
@@ -18,7 +31,8 @@ const projects = [
     id: 2,
     title: 'BATHROOM REMODEL',
     description: 'A full bathroom remodel with new tile, fixtures, and flooring.',
-    image: 'images/Project 12.jpg',
+    image: '/images/Project_12.webp',
+    imageLarge: '/images/Project_12-large.webp',
     category: 'BATHROOM REMODELING',
     imageFit: 'cover',
     imagePosition: 'center',
@@ -28,7 +42,8 @@ const projects = [
     id: 3,
     title: 'PAVER WALKWAY',
     description: 'A custom paver walkway installed at the front entrance.',
-    image: '/images/Project 1.jpg',
+    image: '/images/Project_1.webp',
+    imageLarge: '/images/Project_1-large.webp',
     category: 'HARDSCAPE, WALLS & PAVERS',
     imageFit: 'cover',
     imagePosition: 'center',
@@ -38,7 +53,8 @@ const projects = [
     id: 4,
     title: 'SHOWER REMODEL',
     description: 'A full shower upgrade featuring new wall tile, niche accents, and frameless glass.',
-    image: '/images/Project 10.jpg',
+    image: '/images/Project_10.webp',
+    imageLarge: '/images/Project_10-large.webp',
     category: 'BATHROOM REMODELING',
     imageFit: 'cover',
     imagePosition: '50% 30%',
@@ -48,7 +64,8 @@ const projects = [
     id: 5,
     title: 'CUSTOM TILE SHOWER',
     description: 'A custom walk-in shower with new wall tile, mosaic accent strip, and penny-tile flooring.',
-    image: '/images/Project 4.jpg',
+    image: '/images/Project_4.webp',
+    imageLarge: '/images/Project_4-large.webp',
     category: 'BATHROOM REMODELING',
     imageFit: 'cover',
     imagePosition: 'top center',
@@ -58,7 +75,8 @@ const projects = [
     id: 6,
     title: 'WAINSCOTING & PAINTING',
     description: 'Fresh interior paint and detailed wainscoting trim installation.',
-    image: '/images/Project 6.jpg',
+    image: '/images/Project_6.webp',
+    imageLarge: '/images/Project_6-large.webp',
     category: 'INTERIOR FINISHING',
     imageFit: 'cover',
     imagePosition: 'center',
@@ -68,27 +86,30 @@ const projects = [
     id: 7,
     title: 'KITCHEN PORCELAIN TILE FLOOR',
     description: 'Large-format porcelain tiles laid with a leveling system for a perfectly even finish.',
-    image: '/images/Project 7.jpg',
+    image: '/images/Project_7.webp',
+    imageLarge: '/images/Project_7-large.webp',
     category: 'Kitchen Remodeling',
     imageFit: 'cover',
-    imagePosition: 'bottomn center',
+    imagePosition: 'bottom center',
     imageHeight: 280
   },
   {
     id: 8,
     title: 'BACKYARD PAVER WALKWAY',
     description: 'A custom-designed paver walkway installed along the side of the home.',
-    image: '/images/Project 2.jpg',
+    image: '/images/Project_2.webp',
+    imageLarge: '/images/Project_2-large.webp',
     category: 'HARDSCAPE, WALLS & PAVERS',
     imageFit: 'cover',
-    imagePosition: 'top center', 
+    imagePosition: 'top center',
     imageHeight: 280
   },
   {
     id: 9,
     title: 'PAVER BORDER & STONE PATH',
     description: 'A clean decorative stone walkway and border were installed to access around this pool.',
-    image: '/images/Project 3.jpg',
+    image: '/images/Project_3.webp',
+    imageLarge: '/images/Project_3-large.webp',
     category: 'HARDSCAPE, WALLS & PAVERS',
     imageFit: 'cover',
     imagePosition: '50% 80%',
@@ -98,7 +119,8 @@ const projects = [
     id: 10,
     title: 'CONCRETE SIDEWALK',
     description: 'A freshly poured concrete sidewalk installed along the home.',
-    image: '/images/Project 8.jpg',
+    image: '/images/Project_8.webp',
+    imageLarge: '/images/Project_8-large.webp',
     category: 'CONCRETE SERVICES',
     imageFit: 'cover',
     imagePosition: '50% 40%',
@@ -108,7 +130,8 @@ const projects = [
     id: 11,
     title: 'CUSTOM WALL PANELING',
     description: 'Decorative wall trim paneling was installed along the staircase.',
-    image: '/images/Project 5.jpg',
+    image: '/images/Project_5.webp',
+    imageLarge: '/images/Project_5-large.webp',
     category: 'Interior Finishing',
     imageFit: 'cover',
     imagePosition: '50% 20%',
@@ -118,7 +141,8 @@ const projects = [
     id: 12,
     title: 'POOL DECK',
     description: 'A durable composite deck built around the pool.',
-    image: '/images/Project 9.jpg',
+    image: '/images/Project_9.webp',
+    imageLarge: '/images/Project_9-large.webp',
     category: 'HARDSCAPE, WALLS & PAVERS',
     imageFit: 'cover',
     imagePosition: 'center',
@@ -169,22 +193,24 @@ const Projects = () => {
               {projects.map((project, index) => (
                 <motion.div
                   key={project.id}
-                  initial={{ opacity: 0, y: 50 }}
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
-                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: Math.min(index, 2) * 0.1 }}
+                  viewport={{ once: true, margin: '0px 0px -100px 0px' }}
                   className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
                 >
-                  <div style={{ height: (project.imageHeight ? `${project.imageHeight}px` : '280px') }} className="w-full overflow-hidden">
+                  <div style={{ height: `${project.imageHeight}px` }} className="w-full overflow-hidden">
                     <button
-                      onClick={() => setSelectedImage(project.image)}
+                      onClick={() => setSelectedImage(project.imageLarge)}
                       className="w-full h-full p-0 border-none bg-none cursor-pointer hover:scale-105 transition-transform duration-300"
                       aria-label={`View full image of ${project.title}`}
                     >
                       <img
                         src={project.image}
                         alt={project.title}
-                        style={{ objectFit: (project.imageFit as React.CSSProperties['objectFit']) || 'cover', objectPosition: (project.imagePosition || 'center') }}
+                        loading="lazy"
+                        decoding="async"
+                        style={{ objectFit: project.imageFit, objectPosition: project.imagePosition }}
                         className="w-full h-full"
                       />
                     </button>
@@ -257,6 +283,7 @@ const Projects = () => {
             <img
               src={selectedImage}
               alt="Full view"
+              decoding="async"
               className="max-w-full max-h-full object-contain rounded-lg"
             />
             <button
