@@ -1,13 +1,17 @@
-import React, { useState, useRef } from 'react';
-import { Mail, Phone, MapPin, Clock, ArrowRight, X, Image as ImageIcon } from 'lucide-react';
-import { motion } from 'framer-motion';
+import React, { useState, useRef, useEffect } from 'react';
+import { Mail, Phone, MapPin, Clock, ArrowRight, X, Image as ImageIcon, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import ReCAPTCHA from 'react-google-recaptcha';
 
 interface ImageFile {
   file: File;
   preview: string;
-  base64: string;
+}
+
+interface UploadDescriptor {
+  key: string;
+  uploadUrl: string;
 }
 
 const Contact = () => {
@@ -25,8 +29,26 @@ const Contact = () => {
   const [isDragging, setIsDragging] = useState(false);
   const dragCounterRef = useRef(0);
   const dropZoneRef = useRef<HTMLButtonElement>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    | { type: 'success'; message: string }
+    | { type: 'error'; message: string }
+    | null
+  >(null);
 
   const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY || '';
+  const API_ENDPOINT =
+    import.meta.env.VITE_CONTACT_API_ENDPOINT ||
+    'https://7sqnme6o32.execute-api.us-east-2.amazonaws.com/contactFormHandler';
+
+  // Revoke any outstanding object URLs when the component unmounts so
+  // previews don't leak memory if the user navigates away mid-form.
+  useEffect(() => {
+    return () => {
+      images.forEach((img) => URL.revokeObjectURL(img.preview));
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Format phone number as (XXX) XXX-XXXX
   const formatPhoneNumber = (value: string): string => {
@@ -52,17 +74,9 @@ const Contact = () => {
     setRecaptchaToken(token);
   };
 
-  // Convert file to base64
-  const fileToBase64 = (file: File): Promise<string> => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result as string);
-      reader.onerror = () => reject(new Error(`Failed to read file: ${file.name}`));
-    });
-  };
-
-  // Process files (used by both file input and drag & drop)
+  // Process files (used by both file input and drag & drop).
+  // We no longer base64-encode here — files stay as File objects and get
+  // PUT directly to S3 via pre-signed URLs at submit time.
   const processFiles = async (files: FileList | null) => {
     if (!files) return;
 
@@ -70,35 +84,37 @@ const Contact = () => {
     const MAX_SIZE = 5 * 1024 * 1024; // 5MB per image
     const validImageTypes = new Set(['image/jpeg', 'image/jpg', 'image/png', 'image/webp']);
 
-    // Check total images limit
     if (images.length + files.length > MAX_IMAGES) {
-      alert(`You can upload a maximum of ${MAX_IMAGES} images.`);
+      setSubmitStatus({
+        type: 'error',
+        message: `You can upload a maximum of ${MAX_IMAGES} images.`,
+      });
       return;
     }
 
     const newImages: ImageFile[] = [];
+    const rejected: string[] = [];
 
     for (const file of Array.from(files)) {
-      // Validate file type
       if (!validImageTypes.has(file.type)) {
-        alert(`${file.name} is not a valid image format. Please upload JPEG, PNG, or WebP images.`);
+        rejected.push(`${file.name} (unsupported format)`);
         continue;
       }
-
-      // Validate file size
       if (file.size > MAX_SIZE) {
-        alert(`${file.name} is too large. Maximum size is 5MB per image.`);
+        rejected.push(`${file.name} (over 5MB)`);
         continue;
       }
+      const preview = URL.createObjectURL(file);
+      newImages.push({ file, preview });
+    }
 
-      try {
-        const base64 = await fileToBase64(file);
-        const preview = URL.createObjectURL(file);
-        newImages.push({ file, preview, base64 });
-      } catch (error) {
-        console.error(`Error processing ${file.name}:`, error);
-        alert(`Error processing ${file.name}. Please try again.`);
-      }
+    if (rejected.length > 0) {
+      setSubmitStatus({
+        type: 'error',
+        message: `Skipped: ${rejected.join(', ')}. Supported: JPEG, PNG, WebP up to 5MB.`,
+      });
+    } else if (newImages.length > 0) {
+      setSubmitStatus(null);
     }
 
     setImages([...images, ...newImages]);
@@ -163,56 +179,101 @@ const Contact = () => {
     setImages(images.filter((_, i) => i !== index));
   };
 
+  // Step 1: ask the Lambda for pre-signed PUT URLs for each file.
+  const requestUploadUrls = async (): Promise<UploadDescriptor[]> => {
+    if (images.length === 0) return [];
+
+    const response = await fetch(API_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        action: 'get-upload-urls',
+        files: images.map((img) => ({
+          contentType: img.file.type,
+          size: img.file.size,
+        })),
+      }),
+    });
+
+    if (!response.ok) {
+      const body = await response.json().catch(() => ({}));
+      throw new Error(body.error || 'Could not get upload URLs');
+    }
+
+    const data = (await response.json()) as { uploads: UploadDescriptor[] };
+    return data.uploads;
+  };
+
+  // Step 2: PUT each file directly to S3 using its pre-signed URL.
+  const uploadFilesToS3 = async (uploads: UploadDescriptor[]) => {
+    await Promise.all(
+      uploads.map((upload, index) =>
+        fetch(upload.uploadUrl, {
+          method: 'PUT',
+          headers: { 'Content-Type': images[index].file.type },
+          body: images[index].file,
+        }).then((res) => {
+          if (!res.ok) throw new Error(`Upload failed for ${images[index].file.name}`);
+        })
+      )
+    );
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (isSubmitting) return;
 
     if (RECAPTCHA_SITE_KEY && !recaptchaToken) {
-      alert("Please complete the reCAPTCHA verification.");
+      setSubmitStatus({
+        type: 'error',
+        message: 'Please complete the reCAPTCHA verification before sending.',
+      });
       return;
     }
-  
-    try {
-      // Prepare images data (base64 strings with metadata)
-      const imagesData = images.map(img => ({
-        base64: img.base64,
-        filename: img.file.name,
-        contentType: img.file.type
-      }));
 
-      const response = await fetch("https://7sqnme6o32.execute-api.us-east-2.amazonaws.com/contactFormHandler", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+    setSubmitStatus(null);
+    setIsSubmitting(true);
+
+    try {
+      // Steps 1 & 2: get pre-signed URLs, then upload to S3 directly.
+      const uploads = await requestUploadUrls();
+      await uploadFilesToS3(uploads);
+
+      // Step 3: submit the form with the S3 keys (not the file bodies).
+      const response = await fetch(API_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...formData,
-          recaptchaToken: recaptchaToken,
-          images: imagesData
+          recaptchaToken,
+          imageKeys: uploads.map((u) => u.key),
         }),
       });
-  
+
       if (response.ok) {
-        alert("Message sent successfully!");
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          projectType: '',
-          message: '',
+        setSubmitStatus({
+          type: 'success',
+          message: "Message sent! We'll get back to you within one business day.",
         });
-        // Clean up image previews
-        images.forEach(img => URL.revokeObjectURL(img.preview));
+        setFormData({ name: '', email: '', phone: '', projectType: '', message: '' });
+        images.forEach((img) => URL.revokeObjectURL(img.preview));
         setImages([]);
-        setRecaptchaToken(null);
-        recaptchaRef.current?.reset();
       } else {
-        alert("Failed to send message. Please try again.");
-        setRecaptchaToken(null);
-        recaptchaRef.current?.reset();
+        setSubmitStatus({
+          type: 'error',
+          message: 'We couldn’t send your message. Please try again, or call us directly at (732) 325-5895.',
+        });
       }
     } catch (error) {
-      console.error("Error submitting form:", error);
-      alert("An error occurred. Please try again later.");
+      console.error('Error submitting form:', error);
+      setSubmitStatus({
+        type: 'error',
+        message: 'Network error. Please check your connection and try again.',
+      });
+    } finally {
       setRecaptchaToken(null);
       recaptchaRef.current?.reset();
+      setIsSubmitting(false);
     }
   };
 
@@ -357,8 +418,10 @@ const Contact = () => {
                       value={formData.message}
                       onChange={handleChange}
                       rows={5}
+                      minLength={20}
+                      maxLength={2000}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 transition-colors"
-                      placeholder="Please describe your project in detail..."
+                      placeholder="Please describe your project in detail (at least 20 characters)..."
                       required
                     ></textarea>
                   </div>
@@ -438,13 +501,45 @@ const Contact = () => {
                       />
                     </div>
                   )}
+                  <AnimatePresence>
+                    {submitStatus && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        role="status"
+                        aria-live="polite"
+                        className={`flex items-start gap-3 rounded-lg p-4 text-sm ${
+                          submitStatus.type === 'success'
+                            ? 'bg-green-50 text-green-800 border border-green-200'
+                            : 'bg-red-50 text-red-800 border border-red-200'
+                        }`}
+                      >
+                        {submitStatus.type === 'success' ? (
+                          <CheckCircle2 className="h-5 w-5 flex-shrink-0 mt-0.5" />
+                        ) : (
+                          <AlertCircle className="h-5 w-5 flex-shrink-0 mt-0.5" />
+                        )}
+                        <span>{submitStatus.message}</span>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                   <button
                     type="submit"
-                    disabled={RECAPTCHA_SITE_KEY && !recaptchaToken}
+                    disabled={isSubmitting || (Boolean(RECAPTCHA_SITE_KEY) && !recaptchaToken)}
                     className="w-full bg-red-600 text-white py-4 px-6 rounded-lg hover:bg-red-700 transition-colors font-bold text-lg flex items-center justify-center disabled:bg-gray-400 disabled:cursor-not-allowed"
                   >
-                    SEND MESSAGE
-                    <ArrowRight className="ml-2 h-5 w-5" />
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                        SENDING...
+                      </>
+                    ) : (
+                      <>
+                        SEND MESSAGE
+                        <ArrowRight className="ml-2 h-5 w-5" />
+                      </>
+                    )}
                   </button>
                 </form>
               </motion.div>
