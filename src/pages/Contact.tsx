@@ -80,8 +80,8 @@ const Contact = () => {
   const processFiles = async (files: FileList | null) => {
     if (!files) return;
 
-    const MAX_IMAGES = 10;
-    const MAX_SIZE = 5 * 1024 * 1024; // 5MB per image
+    const MAX_IMAGES = 8;
+    const MAX_SIZE = 3 * 1024 * 1024; // 3MB per image
     const validImageTypes = new Set(['image/jpeg', 'image/jpg', 'image/png', 'image/webp']);
 
     if (images.length + files.length > MAX_IMAGES) {
@@ -101,7 +101,7 @@ const Contact = () => {
         continue;
       }
       if (file.size > MAX_SIZE) {
-        rejected.push(`${file.name} (over 5MB)`);
+        rejected.push(`${file.name} (over 3MB)`);
         continue;
       }
       const preview = URL.createObjectURL(file);
@@ -111,7 +111,7 @@ const Contact = () => {
     if (rejected.length > 0) {
       setSubmitStatus({
         type: 'error',
-        message: `Skipped: ${rejected.join(', ')}. Supported: JPEG, PNG, WebP up to 5MB.`,
+        message: `Skipped: ${rejected.join(', ')}. Supported: JPEG, PNG, WebP up to 3MB.`,
       });
     } else if (newImages.length > 0) {
       setSubmitStatus(null);
@@ -462,7 +462,7 @@ const Contact = () => {
                           {isDragging ? 'Drop photos here' : 'Click to upload photos or drag and drop'}
                         </span>
                         <span className="text-xs text-gray-500">
-                          PNG, JPG, WEBP up to 5MB each (Max 10 images)
+                          PNG, JPG, WEBP up to 3MB each (Max 8 images)
                         </span>
                       </div>
                     </button>
